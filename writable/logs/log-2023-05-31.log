@@ -1,0 +1,488 @@
+CRITICAL - 2023-05-31 15:57:02 --> Class "App\Controllers\ResourceController" not found
+in APPPATH\Controllers\RestAdmin.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\app\\Controllers\\RestAdmin.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\RestAdmin')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\RestAdmin')
+ 5 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\RestAdmin', true)
+ 6 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 15:57:30 --> Class "App\Controllers\ResourceController" not found
+in APPPATH\Controllers\RestAdmin.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\app\\Controllers\\RestAdmin.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\RestAdmin')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\RestAdmin')
+ 5 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\RestAdmin', true)
+ 6 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 16:01:00 --> Class "App\Controllers\ResourceController" not found
+in APPPATH\Controllers\RestAdmin.php on line 7.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\app\\Controllers\\RestAdmin.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\RestAdmin')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\RestAdmin')
+ 5 SYSTEMPATH\CodeIgniter.php(892): class_exists('\\App\\Controllers\\RestAdmin', true)
+ 6 SYSTEMPATH\CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 16:03:31 --> Call to undefined method Kreait\Firebase\Factory::create()
+in APPPATH\Config\Services.php on line 30.
+ 1 APPPATH\Models\Mdladminfirebase.php(14): Config\Services::firebase()
+ 2 APPPATH\Controllers\RestAdmin.php(15): App\Models\Mdladminfirebase->getAll()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\RestAdmin->index()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RestAdmin))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 16:07:59 --> Call to undefined method Kreait\Firebase\Factory::create()
+in APPPATH\Config\Services.php on line 31.
+ 1 APPPATH\Models\Mdladminfirebase.php(14): Config\Services::firebase()
+ 2 APPPATH\Controllers\RestAdmin.php(15): App\Models\Mdladminfirebase->getAll()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\RestAdmin->index()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RestAdmin))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 16:09:21 --> Call to undefined method Kreait\Firebase\Database::getFirestore()
+in APPPATH\Config\Services.php on line 33.
+ 1 APPPATH\Models\Mdladminfirebase.php(14): Config\Services::firebase()
+ 2 APPPATH\Controllers\RestAdmin.php(15): App\Models\Mdladminfirebase->getAll()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\RestAdmin->index()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RestAdmin))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 16:14:29 --> Object of type Kreait\Firebase\Database is not callable
+in APPPATH\Config\Services.php on line 33.
+ 1 APPPATH\Models\Mdladminfirebase.php(14): Config\Services::firebase()
+ 2 APPPATH\Controllers\RestAdmin.php(15): App\Models\Mdladminfirebase->getAll()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\RestAdmin->index()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RestAdmin))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 16:15:21 --> Call to undefined method Kreait\Firebase\Database::collection()
+in APPPATH\Models\Mdladminfirebase.php on line 15.
+ 1 APPPATH\Controllers\RestAdmin.php(15): App\Models\Mdladminfirebase->getAll()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\RestAdmin->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RestAdmin))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 16:15:23 --> Call to undefined method Kreait\Firebase\Database::collection()
+in APPPATH\Models\Mdladminfirebase.php on line 15.
+ 1 APPPATH\Controllers\RestAdmin.php(15): App\Models\Mdladminfirebase->getAll()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\RestAdmin->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RestAdmin))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 16:35:27 --> Call to undefined method Kreait\Firebase\Database::collection()
+in APPPATH\Models\Mdladminfirebase.php on line 15.
+ 1 APPPATH\Controllers\RestAdmin.php(15): App\Models\Mdladminfirebase->getAll()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\RestAdmin->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RestAdmin))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:14:48 --> Call to private method Kreait\Firebase\ServiceAccount::fromJsonFile() from scope App\Libraries\FirebaseClient
+in APPPATH\Libraries\FirebaseClient.php on line 15.
+ 1 APPPATH\Controllers\AdminController.php(11): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:15:50 --> Call to private method Kreait\Firebase\ServiceAccount::fromJsonFile() from scope App\Libraries\FirebaseClient
+in APPPATH\Libraries\FirebaseClient.php on line 15.
+ 1 APPPATH\Controllers\AdminController.php(11): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:19:59 --> Call to private method Kreait\Firebase\ServiceAccount::fromJsonFile() from scope App\Libraries\FirebaseClient
+in APPPATH\Libraries\FirebaseClient.php on line 15.
+ 1 APPPATH\Controllers\AdminController.php(22): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->show('create')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:22:28 --> Call to private method Kreait\Firebase\ServiceAccount::fromJsonFile() from scope App\Libraries\FirebaseClient
+in APPPATH\Libraries\FirebaseClient.php on line 15.
+ 1 APPPATH\Controllers\AdminController.php(22): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->show('create')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:22:29 --> Call to private method Kreait\Firebase\ServiceAccount::fromJsonFile() from scope App\Libraries\FirebaseClient
+in APPPATH\Libraries\FirebaseClient.php on line 15.
+ 1 APPPATH\Controllers\AdminController.php(22): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->show('create')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:24:20 --> Call to private method Kreait\Firebase\ServiceAccount::fromJsonFile() from scope App\Libraries\FirebaseClient
+in APPPATH\Libraries\FirebaseClient.php on line 15.
+ 1 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:28:17 --> Undefined variable $factory
+in APPPATH\Libraries\FirebaseClient.php on line 13.
+ 1 APPPATH\Libraries\FirebaseClient.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $factory', 'D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\app\\Libraries\\FirebaseClient.php', 13)
+ 2 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+WARNING - 2023-05-31 17:28:30 --> [DEPRECATED] Creation of dynamic property App\Libraries\FirebaseClient::$database is deprecated in APPPATH\Libraries\FirebaseClient.php on line 14.
+ 1 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:28:30 --> Call to a member function getDatabase() on null
+in APPPATH\Libraries\FirebaseClient.php on line 34.
+ 1 APPPATH\Controllers\AdminController.php(46): App\Libraries\FirebaseClient->createAdmin([...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+WARNING - 2023-05-31 17:30:35 --> [DEPRECATED] Creation of dynamic property App\Libraries\FirebaseClient::$database is deprecated in APPPATH\Libraries\FirebaseClient.php on line 14.
+ 1 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:30:35 --> cURL error 60: SSL certificate problem: unable to get local issuer certificate (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://oauth2.googleapis.com/token
+in VENDORPATH\guzzlehttp\guzzle\src\Handler\CurlFactory.php on line 211.
+ 1 VENDORPATH\guzzlehttp\guzzle\src\Handler\CurlFactory.php(158): GuzzleHttp\Handler\CurlFactory::createRejection(Object(GuzzleHttp\Handler\EasyHandle), [...])
+ 2 VENDORPATH\guzzlehttp\guzzle\src\Handler\CurlFactory.php(110): GuzzleHttp\Handler\CurlFactory::finishError(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+ 3 VENDORPATH\guzzlehttp\guzzle\src\Handler\CurlHandler.php(47): GuzzleHttp\Handler\CurlFactory::finish(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+ 4 VENDORPATH\guzzlehttp\guzzle\src\Handler\Proxy.php(28): GuzzleHttp\Handler\CurlHandler->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+ 5 VENDORPATH\guzzlehttp\guzzle\src\Handler\Proxy.php(48): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+ 6 VENDORPATH\guzzlehttp\guzzle\src\PrepareBodyMiddleware.php(64): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+ 7 VENDORPATH\guzzlehttp\guzzle\src\Middleware.php(31): GuzzleHttp\PrepareBodyMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+ 8 VENDORPATH\guzzlehttp\guzzle\src\RedirectMiddleware.php(71): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+ 9 VENDORPATH\guzzlehttp\guzzle\src\Middleware.php(66): GuzzleHttp\RedirectMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+10 VENDORPATH\guzzlehttp\guzzle\src\HandlerStack.php(75): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+11 VENDORPATH\guzzlehttp\guzzle\src\Client.php(333): GuzzleHttp\HandlerStack->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+12 VENDORPATH\guzzlehttp\guzzle\src\Client.php(106): GuzzleHttp\Client->transfer(Object(GuzzleHttp\Psr7\Request), [...])
+13 VENDORPATH\guzzlehttp\guzzle\src\Client.php(124): GuzzleHttp\Client->sendAsync(Object(GuzzleHttp\Psr7\Request), [...])
+14 VENDORPATH\google\auth\src\HttpHandler\Guzzle6HttpHandler.php(47): GuzzleHttp\Client->send(Object(GuzzleHttp\Psr7\Request), [...])
+15 VENDORPATH\google\auth\src\OAuth2.php(566): Google\Auth\HttpHandler\Guzzle6HttpHandler->__invoke(Object(GuzzleHttp\Psr7\Request))
+16 VENDORPATH\google\auth\src\Credentials\ServiceAccountCredentials.php(203): Google\Auth\OAuth2->fetchAuthToken(Object(Google\Auth\HttpHandler\Guzzle7HttpHandler))
+17 VENDORPATH\google\auth\src\FetchAuthTokenCache.php(87): Google\Auth\Credentials\ServiceAccountCredentials->fetchAuthToken(Object(Google\Auth\HttpHandler\Guzzle7HttpHandler))
+18 VENDORPATH\google\auth\src\Middleware\AuthTokenMiddleware.php(122): Google\Auth\FetchAuthTokenCache->fetchAuthToken(Object(Google\Auth\HttpHandler\Guzzle7HttpHandler))
+19 VENDORPATH\google\auth\src\Middleware\AuthTokenMiddleware.php(102): Google\Auth\Middleware\AuthTokenMiddleware->fetchToken()
+20 VENDORPATH\guzzlehttp\guzzle\src\PrepareBodyMiddleware.php(64): Google\Auth\Middleware\AuthTokenMiddleware->Google\Auth\Middleware\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+21 VENDORPATH\guzzlehttp\guzzle\src\Middleware.php(31): GuzzleHttp\PrepareBodyMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+22 VENDORPATH\guzzlehttp\guzzle\src\RedirectMiddleware.php(71): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+23 VENDORPATH\guzzlehttp\guzzle\src\Middleware.php(66): GuzzleHttp\RedirectMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+24 VENDORPATH\guzzlehttp\guzzle\src\HandlerStack.php(75): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+25 VENDORPATH\guzzlehttp\guzzle\src\Client.php(333): GuzzleHttp\HandlerStack->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+26 VENDORPATH\guzzlehttp\guzzle\src\Client.php(106): GuzzleHttp\Client->transfer(Object(GuzzleHttp\Psr7\Request), [...])
+27 VENDORPATH\guzzlehttp\guzzle\src\Client.php(124): GuzzleHttp\Client->sendAsync(Object(GuzzleHttp\Psr7\Request), [...])
+28 VENDORPATH\kreait\firebase-php\src\Firebase\Database\ApiClient.php(192): GuzzleHttp\Client->send(Object(GuzzleHttp\Psr7\Request), [...])
+29 VENDORPATH\kreait\firebase-php\src\Firebase\Database\ApiClient.php(153): Kreait\Firebase\Database\ApiClient->requestApi('POST', Object(GuzzleHttp\Psr7\Uri), [...])
+30 VENDORPATH\kreait\firebase-php\src\Firebase\Database\Reference.php(325): Kreait\Firebase\Database\ApiClient->push(Object(GuzzleHttp\Psr7\Uri), [])
+31 APPPATH\Libraries\FirebaseClient.php(45): Kreait\Firebase\Database\Reference->push()
+32 APPPATH\Controllers\AdminController.php(46): App\Libraries\FirebaseClient->createAdmin([...])
+33 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+34 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+35 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+36 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+37 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+WARNING - 2023-05-31 17:30:47 --> [DEPRECATED] Creation of dynamic property App\Libraries\FirebaseClient::$database is deprecated in APPPATH\Libraries\FirebaseClient.php on line 14.
+ 1 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:30:47 --> cURL error 60: SSL certificate problem: unable to get local issuer certificate (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://oauth2.googleapis.com/token
+in VENDORPATH\guzzlehttp\guzzle\src\Handler\CurlFactory.php on line 211.
+ 1 VENDORPATH\guzzlehttp\guzzle\src\Handler\CurlFactory.php(158): GuzzleHttp\Handler\CurlFactory::createRejection(Object(GuzzleHttp\Handler\EasyHandle), [...])
+ 2 VENDORPATH\guzzlehttp\guzzle\src\Handler\CurlFactory.php(110): GuzzleHttp\Handler\CurlFactory::finishError(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+ 3 VENDORPATH\guzzlehttp\guzzle\src\Handler\CurlHandler.php(47): GuzzleHttp\Handler\CurlFactory::finish(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+ 4 VENDORPATH\guzzlehttp\guzzle\src\Handler\Proxy.php(28): GuzzleHttp\Handler\CurlHandler->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+ 5 VENDORPATH\guzzlehttp\guzzle\src\Handler\Proxy.php(48): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+ 6 VENDORPATH\guzzlehttp\guzzle\src\PrepareBodyMiddleware.php(64): GuzzleHttp\Handler\Proxy::GuzzleHttp\Handler\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+ 7 VENDORPATH\guzzlehttp\guzzle\src\Middleware.php(31): GuzzleHttp\PrepareBodyMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+ 8 VENDORPATH\guzzlehttp\guzzle\src\RedirectMiddleware.php(71): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+ 9 VENDORPATH\guzzlehttp\guzzle\src\Middleware.php(66): GuzzleHttp\RedirectMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+10 VENDORPATH\guzzlehttp\guzzle\src\HandlerStack.php(75): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+11 VENDORPATH\guzzlehttp\guzzle\src\Client.php(333): GuzzleHttp\HandlerStack->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+12 VENDORPATH\guzzlehttp\guzzle\src\Client.php(106): GuzzleHttp\Client->transfer(Object(GuzzleHttp\Psr7\Request), [...])
+13 VENDORPATH\guzzlehttp\guzzle\src\Client.php(124): GuzzleHttp\Client->sendAsync(Object(GuzzleHttp\Psr7\Request), [...])
+14 VENDORPATH\google\auth\src\HttpHandler\Guzzle6HttpHandler.php(47): GuzzleHttp\Client->send(Object(GuzzleHttp\Psr7\Request), [...])
+15 VENDORPATH\google\auth\src\OAuth2.php(566): Google\Auth\HttpHandler\Guzzle6HttpHandler->__invoke(Object(GuzzleHttp\Psr7\Request))
+16 VENDORPATH\google\auth\src\Credentials\ServiceAccountCredentials.php(203): Google\Auth\OAuth2->fetchAuthToken(Object(Google\Auth\HttpHandler\Guzzle7HttpHandler))
+17 VENDORPATH\google\auth\src\FetchAuthTokenCache.php(87): Google\Auth\Credentials\ServiceAccountCredentials->fetchAuthToken(Object(Google\Auth\HttpHandler\Guzzle7HttpHandler))
+18 VENDORPATH\google\auth\src\Middleware\AuthTokenMiddleware.php(122): Google\Auth\FetchAuthTokenCache->fetchAuthToken(Object(Google\Auth\HttpHandler\Guzzle7HttpHandler))
+19 VENDORPATH\google\auth\src\Middleware\AuthTokenMiddleware.php(102): Google\Auth\Middleware\AuthTokenMiddleware->fetchToken()
+20 VENDORPATH\guzzlehttp\guzzle\src\PrepareBodyMiddleware.php(64): Google\Auth\Middleware\AuthTokenMiddleware->Google\Auth\Middleware\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+21 VENDORPATH\guzzlehttp\guzzle\src\Middleware.php(31): GuzzleHttp\PrepareBodyMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+22 VENDORPATH\guzzlehttp\guzzle\src\RedirectMiddleware.php(71): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+23 VENDORPATH\guzzlehttp\guzzle\src\Middleware.php(66): GuzzleHttp\RedirectMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+24 VENDORPATH\guzzlehttp\guzzle\src\HandlerStack.php(75): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), [...])
+25 VENDORPATH\guzzlehttp\guzzle\src\Client.php(333): GuzzleHttp\HandlerStack->__invoke(Object(GuzzleHttp\Psr7\Request), [...])
+26 VENDORPATH\guzzlehttp\guzzle\src\Client.php(106): GuzzleHttp\Client->transfer(Object(GuzzleHttp\Psr7\Request), [...])
+27 VENDORPATH\guzzlehttp\guzzle\src\Client.php(124): GuzzleHttp\Client->sendAsync(Object(GuzzleHttp\Psr7\Request), [...])
+28 VENDORPATH\kreait\firebase-php\src\Firebase\Database\ApiClient.php(192): GuzzleHttp\Client->send(Object(GuzzleHttp\Psr7\Request), [...])
+29 VENDORPATH\kreait\firebase-php\src\Firebase\Database\ApiClient.php(153): Kreait\Firebase\Database\ApiClient->requestApi('POST', Object(GuzzleHttp\Psr7\Uri), [...])
+30 VENDORPATH\kreait\firebase-php\src\Firebase\Database\Reference.php(325): Kreait\Firebase\Database\ApiClient->push(Object(GuzzleHttp\Psr7\Uri), [])
+31 APPPATH\Libraries\FirebaseClient.php(45): Kreait\Firebase\Database\Reference->push()
+32 APPPATH\Controllers\AdminController.php(46): App\Libraries\FirebaseClient->createAdmin([...])
+33 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+34 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+35 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+36 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+37 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+WARNING - 2023-05-31 17:37:03 --> [DEPRECATED] Creation of dynamic property App\Libraries\FirebaseClient::$database is deprecated in APPPATH\Libraries\FirebaseClient.php on line 14.
+ 1 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:37:04 --> 
+
+The database at
+
+    https://sipemas-7ef4b.firebaseio.com
+
+could not be found. You can find the correct name at
+
+    https://console.firebase.google.com/project/_/database
+
+If you haven't configured the SDK otherwise and if you don't use multiple
+Realtime Databases, the name you will find will most likely be
+
+    https://sipemas-7ef4b-default-rtdb.firebaseio.com
+
+The reason for this is that during the lifetime of the Firebase Admin SDK,
+Firebase has changed the name of the default database. Previously, the default
+database had the same identifier as the project. Since approximately September
+2020, Realtime Databases in newly created projects have the '-default-rtdb'
+suffix.
+
+For instructions on how to set the name of the used Realtime Database, please
+see https://firebase-php.readthedocs.io/en/5.x/#quick-start
+
+
+in VENDORPATH\kreait\firebase-php\src\Firebase\Exception\Database\DatabaseNotFound.php on line 51.
+ 1 VENDORPATH\kreait\firebase-php\src\Firebase\Exception\DatabaseApiExceptionConverter.php(61): Kreait\Firebase\Exception\Database\DatabaseNotFound::fromUri(Object(GuzzleHttp\Psr7\Uri))
+ 2 VENDORPATH\kreait\firebase-php\src\Firebase\Exception\DatabaseApiExceptionConverter.php(33): Kreait\Firebase\Exception\DatabaseApiExceptionConverter->convertGuzzleRequestException(Object(GuzzleHttp\Exception\ClientException))
+ 3 VENDORPATH\kreait\firebase-php\src\Firebase\Database\ApiClient.php(194): Kreait\Firebase\Exception\DatabaseApiExceptionConverter->convertException(Object(GuzzleHttp\Exception\ClientException))
+ 4 VENDORPATH\kreait\firebase-php\src\Firebase\Database\ApiClient.php(153): Kreait\Firebase\Database\ApiClient->requestApi('POST', Object(GuzzleHttp\Psr7\Uri), [...])
+ 5 VENDORPATH\kreait\firebase-php\src\Firebase\Database\Reference.php(325): Kreait\Firebase\Database\ApiClient->push(Object(GuzzleHttp\Psr7\Uri), [])
+ 6 APPPATH\Libraries\FirebaseClient.php(45): Kreait\Firebase\Database\Reference->push()
+ 7 APPPATH\Controllers\AdminController.php(46): App\Libraries\FirebaseClient->createAdmin([...])
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:45:45 --> Call to private method Kreait\Firebase\ServiceAccount::fromJsonFile() from scope App\Libraries\FirebaseClient
+in APPPATH\Libraries\FirebaseClient.php on line 14.
+ 1 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:47:35 --> Call to undefined method Kreait\Firebase\Factory::create()
+in APPPATH\Libraries\FirebaseClient.php on line 17.
+ 1 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:47:44 --> Call to undefined method Kreait\Firebase\Factory::create()
+in APPPATH\Libraries\FirebaseClient.php on line 17.
+ 1 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:48:51 --> Class "Google\Cloud\Firestore\FirestoreClient" not found
+in VENDORPATH\kreait\firebase-php\src\Firebase\Factory.php on line 582.
+ 1 APPPATH\Libraries\FirebaseClient.php(16): Kreait\Firebase\Factory->createFirestore()
+ 2 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 17:57:13 --> Class "Google\Cloud\Firestore\FirestoreClient" not found
+in VENDORPATH\kreait\firebase-php\src\Firebase\Factory.php on line 582.
+ 1 APPPATH\Libraries\FirebaseClient.php(16): Kreait\Firebase\Factory->createFirestore()
+ 2 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 18:30:28 --> Class "Google\Cloud\Firestore\FirestoreClient" not found
+in VENDORPATH\kreait\firebase-php\src\Firebase\Factory.php on line 582.
+ 1 APPPATH\Libraries\FirebaseClient.php(16): Kreait\Firebase\Factory->createFirestore()
+ 2 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 18:32:05 --> Class "Google\Cloud\Firestore\FirestoreClient" not found
+in VENDORPATH\kreait\firebase-php\src\Firebase\Factory.php on line 582.
+ 1 APPPATH\Libraries\FirebaseClient.php(16): Kreait\Firebase\Factory->createFirestore()
+ 2 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 18:53:15 --> The requested client requires the gRPC extension. Please see https://cloud.google.com/php/grpc for installation instructions.
+in VENDORPATH\google\cloud-core\src\ClientTrait.php on line 71.
+ 1 VENDORPATH\google\cloud-firestore\src\FirestoreClient.php(141): Google\Cloud\Firestore\FirestoreClient->requireGrpc()
+ 2 VENDORPATH\kreait\firebase-php\src\Firebase\Factory.php(582): Google\Cloud\Firestore\FirestoreClient->__construct([...])
+ 3 APPPATH\Libraries\FirebaseClient.php(16): Kreait\Firebase\Factory->createFirestore()
+ 4 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 18:53:39 --> The requested client requires the gRPC extension. Please see https://cloud.google.com/php/grpc for installation instructions.
+in VENDORPATH\google\cloud-core\src\ClientTrait.php on line 71.
+ 1 VENDORPATH\google\cloud-firestore\src\FirestoreClient.php(141): Google\Cloud\Firestore\FirestoreClient->requireGrpc()
+ 2 VENDORPATH\kreait\firebase-php\src\Firebase\Factory.php(582): Google\Cloud\Firestore\FirestoreClient->__construct([...])
+ 3 APPPATH\Libraries\FirebaseClient.php(16): Kreait\Firebase\Factory->createFirestore()
+ 4 APPPATH\Controllers\AdminController.php(38): App\Libraries\FirebaseClient->__construct()
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 19:13:54 --> Call to undefined method Kreait\Firebase\Firestore::collection()
+in APPPATH\Libraries\FirebaseClient.php on line 49.
+ 1 APPPATH\Controllers\AdminController.php(46): App\Libraries\FirebaseClient->createAdmin([...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 19:14:08 --> Call to undefined method Kreait\Firebase\Firestore::collection()
+in APPPATH\Libraries\FirebaseClient.php on line 49.
+ 1 APPPATH\Controllers\AdminController.php(46): App\Libraries\FirebaseClient->createAdmin([...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+WARNING - 2023-05-31 19:16:10 --> [DEPRECATED] Google\Cloud\Firestore\WriteBatch is deprecated and will be removed in the next major release.
+    Use Google\Cloud\Firestore\BulkWriter instead in VENDORPATH\google\cloud-firestore\src\WriteBatch.php on line 48.
+ 1 VENDORPATH\google\cloud-firestore\src\WriteBatch.php(48): trigger_error('Google\\Cloud\\Firestore\\WriteBatch is deprecated and will be removed in the next major release.
+    Use Google\\Cloud\\Firestore\\BulkWriter instead', 16384)
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\vendor\\google\\cloud-firestore\\src\\WriteBatch.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(248): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\vendor\\composer/../google/cloud-firestore/src/WriteBatch.php')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClassmap('Google\\Cloud\\Firestore\\WriteBatch')
+ 5 VENDORPATH\google\cloud-firestore\src\DocumentReference.php(418): class_exists('Google\\Cloud\\Firestore\\WriteBatch')
+ 6 VENDORPATH\google\cloud-firestore\src\DocumentReference.php(225): Google\Cloud\Firestore\DocumentReference->batchFactory()
+ 7 APPPATH\Libraries\FirebaseClient.php(55): Google\Cloud\Firestore\DocumentReference->set([...])
+ 8 APPPATH\Controllers\AdminController.php(46): App\Libraries\FirebaseClient->createAdmin([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+WARNING - 2023-05-31 19:21:01 --> [DEPRECATED] Google\Cloud\Firestore\WriteBatch is deprecated and will be removed in the next major release.
+    Use Google\Cloud\Firestore\BulkWriter instead in VENDORPATH\google\cloud-firestore\src\WriteBatch.php on line 48.
+ 1 VENDORPATH\google\cloud-firestore\src\WriteBatch.php(48): trigger_error('Google\\Cloud\\Firestore\\WriteBatch is deprecated and will be removed in the next major release.
+    Use Google\\Cloud\\Firestore\\BulkWriter instead', 16384)
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\vendor\\google\\cloud-firestore\\src\\WriteBatch.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(248): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\vendor\\composer/../google/cloud-firestore/src/WriteBatch.php')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClassmap('Google\\Cloud\\Firestore\\WriteBatch')
+ 5 VENDORPATH\google\cloud-firestore\src\DocumentReference.php(418): class_exists('Google\\Cloud\\Firestore\\WriteBatch')
+ 6 VENDORPATH\google\cloud-firestore\src\DocumentReference.php(225): Google\Cloud\Firestore\DocumentReference->batchFactory()
+ 7 APPPATH\Libraries\FirebaseClient.php(55): Google\Cloud\Firestore\DocumentReference->set([...])
+ 8 APPPATH\Controllers\AdminController.php(46): App\Libraries\FirebaseClient->createAdmin([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 19:28:55 --> Undefined array key "name"
+in APPPATH\Views\admin.php on line 55.
+ 1 APPPATH\Views\admin.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\app\\Views\\admin.php', 55)
+ 2 SYSTEMPATH\View\View.php(213): include('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin', [], true)
+ 5 APPPATH\Controllers\Admin.php(14): view('admin', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+CRITICAL - 2023-05-31 19:29:23 --> Undefined array key "nama"
+in APPPATH\Views\admin.php on line 54.
+ 1 APPPATH\Views\admin.php(54): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\app\\Views\\admin.php', 54)
+ 2 SYSTEMPATH\View\View.php(213): include('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\app\\Views\\admin.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('admin', [], true)
+ 5 APPPATH\Controllers\Admin.php(14): view('admin', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Admin->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+WARNING - 2023-05-31 19:30:08 --> [DEPRECATED] Google\Cloud\Firestore\WriteBatch is deprecated and will be removed in the next major release.
+    Use Google\Cloud\Firestore\BulkWriter instead in VENDORPATH\google\cloud-firestore\src\WriteBatch.php on line 48.
+ 1 VENDORPATH\google\cloud-firestore\src\WriteBatch.php(48): trigger_error('Google\\Cloud\\Firestore\\WriteBatch is deprecated and will be removed in the next major release.
+    Use Google\\Cloud\\Firestore\\BulkWriter instead', 16384)
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\vendor\\google\\cloud-firestore\\src\\WriteBatch.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(248): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\vendor\\composer/../google/cloud-firestore/src/WriteBatch.php')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClassmap('Google\\Cloud\\Firestore\\WriteBatch')
+ 5 VENDORPATH\google\cloud-firestore\src\DocumentReference.php(418): class_exists('Google\\Cloud\\Firestore\\WriteBatch')
+ 6 VENDORPATH\google\cloud-firestore\src\DocumentReference.php(225): Google\Cloud\Firestore\DocumentReference->batchFactory()
+ 7 APPPATH\Libraries\FirebaseClient.php(55): Google\Cloud\Firestore\DocumentReference->set([...])
+ 8 APPPATH\Controllers\AdminController.php(46): App\Libraries\FirebaseClient->createAdmin([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
+WARNING - 2023-05-31 19:31:47 --> [DEPRECATED] Google\Cloud\Firestore\WriteBatch is deprecated and will be removed in the next major release.
+    Use Google\Cloud\Firestore\BulkWriter instead in VENDORPATH\google\cloud-firestore\src\WriteBatch.php on line 48.
+ 1 VENDORPATH\google\cloud-firestore\src\WriteBatch.php(48): trigger_error('Google\\Cloud\\Firestore\\WriteBatch is deprecated and will be removed in the next major release.
+    Use Google\\Cloud\\Firestore\\BulkWriter instead', 16384)
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(312): include_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\vendor\\google\\cloud-firestore\\src\\WriteBatch.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(248): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\vendor\\composer/../google/cloud-firestore/src/WriteBatch.php')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClassmap('Google\\Cloud\\Firestore\\WriteBatch')
+ 5 VENDORPATH\google\cloud-firestore\src\DocumentReference.php(418): class_exists('Google\\Cloud\\Firestore\\WriteBatch')
+ 6 VENDORPATH\google\cloud-firestore\src\DocumentReference.php(225): Google\Cloud\Firestore\DocumentReference->batchFactory()
+ 7 APPPATH\Libraries\FirebaseClient.php(55): Google\Cloud\Firestore\DocumentReference->set([...])
+ 8 APPPATH\Controllers\AdminController.php(46): App\Libraries\FirebaseClient->createAdmin([...])
+ 9 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\AdminController->create()
+10 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Suluh\\Kerja\\project\\sipemas\\sipemas-web\\public\\index.php')
