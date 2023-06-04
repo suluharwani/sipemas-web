@@ -30,12 +30,34 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->resource('AdminController');
+$routes->get('/content', 'Home::content');
+// $routes->resource('AdminController');
 $routes->add('admin/create', 'AdminController::create');
 $routes->add('admin/update/(:segment)', 'AdminController::update/$1');
 $routes->add('admin/delete/(:segment)', 'AdminController::delete/$1');
 
-$routes->get('adm', 'Admin::index');
+$routes->add('laporan/create', 'LaporanController::create');
+$routes->add('laporan/update/(:segment)', 'LaporanController::update/$1');
+$routes->add('laporan/delete/(:segment)', 'LaporanController::delete/$1');
+
+$routes->add('content/create', 'ContentController::create');
+$routes->add('content/update/(:segment)', 'ContentController::update/$1');
+$routes->add('content/delete/(:segment)', 'ContentController::delete/$1');
+
+
+$routes->get('administrator', 'Admin::index');
+$routes->get('administrator/evaluasi', 'Admin::evaluasi');
+$routes->get('administrator/kontak', 'Admin::kontak');
+$routes->get('administrator/layanan', 'Admin::layanan');
+$routes->get('administrator/profile', 'Admin::profile');
+$routes->get('administrator/evaluasi/(:any)', 'Admin::evaluasi/$1');
+$routes->get('administrator/kontak/(:any)', 'Admin::kontak/$1');
+$routes->get('administrator/layanan/(:any)', 'Admin::layanan/$1');
+$routes->get('administrator/profile/(:any)', 'Admin::profile/$1');
+
+
+$routes->get('login', 'Login::index');
+$routes->post('login', 'Login::index');
 
 
 /*

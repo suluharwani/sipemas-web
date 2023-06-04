@@ -123,6 +123,7 @@ class ComposerStaticInitb3313f348f8392d595dba9bf2d85edbe
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'Bcrypt\\' => 7,
         ),
     );
 
@@ -380,6 +381,10 @@ class ComposerStaticInitb3313f348f8392d595dba9bf2d85edbe
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'Bcrypt\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/polarising/bcrypt/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -405,6 +410,7 @@ class ComposerStaticInitb3313f348f8392d595dba9bf2d85edbe
 
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Bcrypt\\Bcrypt' => __DIR__ . '/..' . '/polarising/bcrypt/src/Bcrypt.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',

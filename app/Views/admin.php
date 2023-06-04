@@ -54,6 +54,18 @@
             </tr>
         <?php endforeach; ?>
     </table>
+    <h1>Laporan List</h1>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Email</th>
+        </tr>
+        <?php foreach ($laporan as $lap) : ?>
+            <tr>
+                <td><?php echo $lap['nama']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
 </body>
 </html>
 

@@ -69,4 +69,5 @@ return array(
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'CodeIgniter\\' => array($vendorDir . '/codeigniter4/framework/system'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
+    'Bcrypt\\' => array($vendorDir . '/polarising/bcrypt/src'),
 );

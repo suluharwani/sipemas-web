@@ -8,9 +8,11 @@
         "php": "^7.4 || ^8.0",
         "codeigniter4/framework": "^4.0",
         "google/cloud-firestore": "^1.33",
+        "google/cloud-storage": "^1.31",
         "grpc/grpc": "^1.52",
         "guzzle/guzzle": "^3.9",
-        "kreait/firebase-php": "^5.26"
+        "kreait/firebase-php": "^5.26",
+        "polarising/bcrypt": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",
