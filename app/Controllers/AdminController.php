@@ -11,6 +11,7 @@ class AdminController extends BaseController
     {
         // Melakukan operasi CRUD untuk mendapatkan data admin
         $firebase = new FirebaseClient();
+        
         $admins = $firebase->getAdmins();
 
         // Mengembalikan respons dengan kode HTTP 200 (OK) jika berhasil
@@ -34,7 +35,10 @@ class AdminController extends BaseController
 
         return $response;
     }
-    
+    function getAdmin($email){
+        $firebase = new FirebaseClient();
+        return $firebase->getAdmin($email);
+    }
     public function create($req = null)
     {
         if ($req ==null ) {
@@ -63,7 +67,7 @@ class AdminController extends BaseController
         // Melakukan operasi CRUD untuk membuat admin
         $firebase = new FirebaseClient();
         $adminId = $firebase->createAdmin($data);
-
+        
         // Mengembalikan respons dengan kode HTTP 201 (Created) jika berhasil
         if ($adminId) {
             $response = service('response');

@@ -5,22 +5,23 @@ namespace App\Controllers;
 use App\Libraries\FirebaseClient;
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
-class ContentController extends BaseController
+class UserController extends BaseController
 {
     public function index()
     {
         // Melakukan operasi CRUD untuk mendapatkan data admin
         $firebase = new FirebaseClient();
-        $content = $firebase->getAllContent();
+
+        $admins = $firebase->getAllUser();
 
         // Mengembalikan respons dengan kode HTTP 200 (OK) jika berhasil
-        if ($content) {
+        if ($admins) {
             $response = service('response');
             $response->setStatusCode(ResponseInterface::HTTP_OK);
             $response->setJSON([
                 'status' => 'success',
                 'message' => 'Laporan retrieved successfully',
-                'data' => $content,
+                'data' => $admins,
             ]);
         } else {
             // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika tidak ada admin
@@ -28,37 +29,31 @@ class ContentController extends BaseController
             $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
             $response->setJSON([
                 'status' => 'error',
-                'message' => 'No content found',
+                'message' => 'No admins found',
             ]);
         }
 
         return $response;
     }
-
-    public function create()
+    function getUser($email){
+        $firebase = new FirebaseClient();
+        return $firebase->getUser($email);
+    }
+    public function create($req = null)
     {
-        // Mengambil data input dari form
-        $title = $this->request->getPost('title');
-        $content = $this->request->getPost('content');
-
-        // Membuat data admin
-        $data = [
-            'title' => $title,
-            'content' => $content,
-        ];
-
+            $data = $req;
         // Melakukan operasi CRUD untuk membuat admin
         $firebase = new FirebaseClient();
-        $adminId = $firebase->createContent($data);
-
+        $userId = $firebase->createUser($data);
+        
         // Mengembalikan respons dengan kode HTTP 201 (Created) jika berhasil
-        if ($adminId) {
+        if ($userId) {
             $response = service('response');
             $response->setStatusCode(ResponseInterface::HTTP_CREATED);
             $response->setJSON([
                 'status' => 'success',
-                'message' => 'Admin created successfully',
-                'admin_id' => $adminId,
+                'message' => 'User created successfully',
+                'admin_id' => $userId,
             ]);
         } else {
             // Mengembalikan respons dengan kode HTTP 500 (Internal Server Error) jika gagal
@@ -66,7 +61,7 @@ class ContentController extends BaseController
             $response->setStatusCode(ResponseInterface::HTTP_INTERNAL_SERVER_ERROR);
             $response->setJSON([
                 'status' => 'error',
-                'message' => 'Failed to create admin',
+                'message' => 'Failed to create user',
             ]);
         }
 
@@ -80,18 +75,20 @@ class ContentController extends BaseController
        public function update($id)
     {
         // Mengambil data input dari form
-        $title = $this->request->getPost('title');
-        $content = $this->request->getPost('content');
+        $firstName = $this->request->getPost('firstName');
+        $lastName = $this->request->getPost('lastName');
+        $email = $this->request->getPost('email');
 
         // Membuat data admin yang akan diperbarui
         $data = [
-            'title' => $title,
-            'content' => $content,
+            'firstName' => $firstName,
+            'email' => $email,
+            'lastName' => $lastName,
         ];
 
         // Melakukan operasi CRUD untuk memperbarui admin
         $firebase = new FirebaseClient();
-        $updated = $firebase->updateAdmin($id, $data);
+        $updated = $firebase->updateUser($id, $data);
 
         // Mengembalikan respons dengan kode HTTP 200 (OK) jika berhasil
         if ($updated) {
@@ -99,15 +96,15 @@ class ContentController extends BaseController
             $response->setStatusCode(ResponseInterface::HTTP_OK);
             $response->setJSON([
                 'status' => 'success',
-                'message' => 'Admin updated successfully',
+                'message' => 'User updated successfully',
             ]);
         } else {
-            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika admin tidak ditemukan
+            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika User tidak ditemukan
             $response = service('response');
             $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
             $response->setJSON([
                 'status' => 'error',
-                'message' => 'Admin not found',
+                'message' => 'User not found',
             ]);
         }
 
@@ -118,7 +115,7 @@ class ContentController extends BaseController
     {
         // Melakukan operasi CRUD untuk menghapus admin
         $firebase = new FirebaseClient();
-        $deleted = $firebase->deleteAdmin($id);
+        $deleted = $firebase->deleteUser($id);
 
         // Mengembalikan respons dengan kode HTTP 204 (No Content) jika berhasil
         if ($deleted) {
@@ -130,7 +127,7 @@ class ContentController extends BaseController
             $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
             $response->setJSON([
                 'status' => 'error',
-                'message' => 'Admin not found',
+                'message' => 'User not found',
             ]);
         }
 

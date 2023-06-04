@@ -34,7 +34,47 @@ class LaporanController extends BaseController
 
         return $response;
     }
+    public function countchart(){
+        // echo "string";
+        $firebase = new FirebaseClient();
+        $laporan = $firebase->countLaporanPerBulan(date("Y"));    
+        if ($laporan) {
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_OK);
+            $response->setJSON(array($laporan));
+        } else {
+            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika tidak ada admin
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
+            $response->setJSON([
+                'status' => 'error',
+                'message' => 'No laporan found',
+            ]);
+        }
 
+        return $response;
+    }
+    public function countrating(){
+        // echo "string";
+        $firebase = new FirebaseClient();
+        $laporan = $firebase->countLaporanByRating(date("Y"));    
+        if ($laporan) {
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_OK);
+            $response->setJSON(array($laporan));
+        } else {
+            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika tidak ada admin
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
+            $response->setJSON([
+                'status' => 'error',
+                'message' => 'No laporan found',
+            ]);
+        }
+
+        return $response;
+    }
+    
     public function create()
     {
         // Mengambil data input dari form

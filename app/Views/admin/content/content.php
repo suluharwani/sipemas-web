@@ -15,8 +15,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Profile Views</h6>
-                                    <h6 class="font-extrabold mb-0">112.000</h6>
+                                    <h6 class="text-muted font-semibold">Laporan</h6>
+                                    <h6 class="font-extrabold mb-0"><span id="laporanCount"></span></h6>
                                 </div>
                             </div>
                         </div>
@@ -32,8 +32,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Followers</h6>
-                                    <h6 class="font-extrabold mb-0">183.000</h6>
+                                    <h6 class="text-muted font-semibold">Admin</h6>
+                                    <h6 class="font-extrabold mb-0"><span id="adminCount"></h6>
                                 </div>
                             </div>
                         </div>
@@ -49,8 +49,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Following</h6>
-                                    <h6 class="font-extrabold mb-0">80.000</h6>
+                                    <h6 class="text-muted font-semibold">User</h6>
+                                    <h6 class="font-extrabold mb-0"><span id="userCount"></h6>
                                 </div>
                             </div>
                         </div>
@@ -66,8 +66,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Saved Post</h6>
-                                    <h6 class="font-extrabold mb-0">112</h6>
+                                    <h6 class="text-muted font-semibold">Content</h6>
+                                    <h6 class="font-extrabold mb-0"><span id="contentCount"></h6>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Profile Visit</h4>
+                            <h4>Laporan Pengaduan tahun <?=date('Y')?></h4>
                         </div>
                         <div class="card-body">
                             <div id="chart-profile-visit"></div>
@@ -90,7 +90,7 @@
                 <div class="col-12 col-xl-4">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Profile Visit</h4>
+                            <h4>Pengaduan masuk</h4>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -208,8 +208,8 @@
                             <img src="<?=base_url('assets/adm')?>/assets/images/faces/1.jpg" alt="Face 1">
                         </div>
                         <div class="ms-3 name">
-                            <h5 class="font-bold">John Duck</h5>
-                            <h6 class="text-muted mb-0">@johnducky</h6>
+                            <h5 class="font-bold"><?php echo $_SESSION['auth']['nama_depan'].' '.$_SESSION['auth']['nama_belakang']?></h5>
+                            <h6 class="text-muted mb-0"><?=$_SESSION['auth']['email']?></h6>
                         </div>
                     </div>
                 </div>
@@ -253,7 +253,7 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4>Visitors Profile</h4>
+                    <h4>Rating Aduan</h4>
                 </div>
                 <div class="card-body">
                     <div id="chart-visitors-profile"></div>
@@ -262,3 +262,8 @@
         </div>
     </section>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="<?=base_url('assets/adm')?>/assets/extensions/apexcharts/apexcharts.min.js"></script>
+
+<script src="<?=base_url('assets/adm')?>/assets/js/pages/dashboard.js"></script>

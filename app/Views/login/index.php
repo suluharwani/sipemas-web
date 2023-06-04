@@ -43,7 +43,7 @@
             </div> -->
             <h1 class="auth-title">Log in.</h1>
             <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
-
+            
             <form method="post">
             <input class="input100" type="hidden" name="token_generate" id="token_generate">
                 <div class="form-group position-relative has-icon-left mb-4">
@@ -73,7 +73,7 @@
                     </div>
                     <?php }?>
                 <!-- <span class='text-gray-600'>Log in with:</span> -->
-
+            
             <!-- </div> -->
                     </label>
                 </div>

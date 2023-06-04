@@ -40,7 +40,7 @@ class Login extends BaseController
 
     $admins = $firebase->getAdmins();
     
-    $banyak_user = 0;
+    // $banyak_user = 0;
     $data['title'] = "Login";
     //login dengan input
     //Register
@@ -95,8 +95,6 @@ class Login extends BaseController
     //login
     if ($this->request->getPost("submit") == "login") {
       
-      $token_generate = $this->request->getPost("token_generate");
-      if ($this->userValidation->recaptchaValidation($token_generate)->success) {
         // validation ok
         //password
         
@@ -115,39 +113,24 @@ class Login extends BaseController
         if ($this->form_validation->withRequest($this->request)->run()) {
           $email = $_POST['email'];
           $password = $_POST['password'];
-          $user = $userModel->get_cipherpass($email);
-
-          if ($user >0 && $user['status'] == 1) {
+          $user = $this->adminController->getAdmin($email);
+          if (count($user) >0 && $user['status'] == 1) {
             if ($user['level'] >= 2) {
               $this->session->setFlashdata('login_error', array("not_admin"=>"Anda bukan Administrator, silakan hubungi Administrator untuk meminta halaman login"));
             }
             if ($user['password'] != NULL || $user['password'] != '' ) {
-
-
+              
+              
               if ($this->bcrypt->verify($password, $user['password'])) {
-
-                $data_user = [
-                  'id' => $user['id'],
-                  'nama_depan'=> $user['nama_depan'],
-                  'level'=> $user['level'],
-                  'nama_belakang'=> $user['nama_belakang'],
-                  'name'=> $user['nama_depan']." ".$user['nama_belakang'],
-                  'email'=> $user['email'],
-                  'picture'=> $user['profile_picture'],
-                ];
-    
-                $userModel->where("email", $email);
-                $profile = $userModel->get()->getResultArray();
-                $this->session->set('profile', $profile);
-                $this->session->set('logged', true);
-                $this->session->set('auth', $data_user);
-
-                return redirect()->to('/admin');
+              
+                $this->session->set('auth', $user);
+                
+                return redirect()->to('/administrator');
               }else{
                 $this->session->setFlashdata('login_error',  array("failed"=>"Login Failed: Incorrect username or password"));
               }
             }else{
-              $this->session->setFlashdata('login_error', array("failed"=>"Password tidak ada: Silakan login dengan google account"));
+              $this->session->setFlashdata('login_error', array("failed"=>"Password tidak ada: Silakan hubungi administrator"));
             }
           }else{
             $this->session->setFlashdata('login_error', array("notActive"=>"User tidak ada/tidakaktif, silakan hubungi Administrator"));
@@ -157,12 +140,7 @@ class Login extends BaseController
           $this->session->setFlashdata('login_error', $this->form_validation->getErrors());
         }
 
-      } else {
-        //  validation recaptcha not ok
 
-        $this->session->setFlashdata('login_error',  array('recaptcha' => "Recaptcha not valid, silakan login lagi!" ));
-
-      }
     }
     //end login
  
@@ -179,7 +157,7 @@ class Login extends BaseController
   function logout()
   {
     Session()->destroy();
-    return Redirect()->to(base_url('admin'));
+    return Redirect()->to(base_url('administrator'));
   }
 
 

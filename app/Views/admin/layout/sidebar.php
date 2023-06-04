@@ -72,7 +72,7 @@
             </li>
              <li
                 class="sidebar-item  ">
-                <a href="" class='sidebar-link'>
+                <a href="<?=base_url('logout')?>" class='sidebar-link'>
                     <i class="bi bi-x-octagon-fill"></i>
                     <span>Log out</span>
                 </a>

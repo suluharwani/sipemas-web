@@ -59,7 +59,15 @@ $routes->get('administrator/profile/(:any)', 'Admin::profile/$1');
 $routes->get('login', 'Login::index');
 $routes->post('login', 'Login::index');
 
+$routes->get('logout', 'Login::logout');
+// ajax
+$routes->post('UserController/index', 'UserController::index');
+$routes->post('LaporanController/index', 'LaporanController::index');
+$routes->post('ContentController/index', 'ContentController::index');
+$routes->post('AdminController/index', 'AdminController::index');
 
+$routes->post('LaporanController/countchart', 'LaporanController::countchart');
+$routes->post('LaporanController/countrating', 'LaporanController::countrating');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
