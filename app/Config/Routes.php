@@ -68,6 +68,9 @@ $routes->post('AdminController/index', 'AdminController::index');
 
 $routes->post('LaporanController/countchart', 'LaporanController::countchart');
 $routes->post('LaporanController/countrating', 'LaporanController::countrating');
+$routes->post('LaporanController/getLaporanData', 'LaporanController::getLaporanData');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

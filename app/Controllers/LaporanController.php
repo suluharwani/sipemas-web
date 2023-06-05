@@ -180,5 +180,14 @@ class LaporanController extends BaseController
 
         return $response;
     }
-    
+    public function getLaporanData()
+{
+    $firebase = new FirebaseClient();
+    $draw = $_POST['draw'];
+    $start = $_POST['start'];
+    $length = $_POST['length'];
+    $searchValue = $_POST['search']['value'];
+    return $firebase->getLaporanData($draw,$start,$length,$searchValue);
+}
+
 }

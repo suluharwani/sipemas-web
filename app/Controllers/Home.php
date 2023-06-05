@@ -7,11 +7,7 @@ class Home extends BaseController
 {
     public function index()
     {
-        $firebase = new FirebaseClient();
-        $admins = $firebase->getAdmins();
-        $laporan = $firebase->getAllLaporan();
-        // print_r($admins);
-        return view('admin', ['admins' => $admins, 'laporan'=>$laporan]);
+
     }
 
 

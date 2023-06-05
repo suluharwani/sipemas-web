@@ -1,5 +1,39 @@
 var loc = window.location;
 var base_url = loc.protocol + "//" + loc.hostname + (loc.port? ":"+loc.port : "") + "/";
+// $(document).ready(function() {
+//     // Inisialisasi DataTables
+//     $('#laporanTable').DataTable({
+//         ajax: {
+//             url: base_url + 'LaporanController/getLaporanData',
+//             type: 'POST',
+//             dataSrc: '',
+//         },
+//         columns: [
+//             { data: 'uid' },
+//             { data: 'tanggal' },
+//             { data: 'kategori' },
+//             { data: 'rating' },
+//             // tambahkan kolom lain sesuai kebutuhan
+//         ],
+//     });
+// });
+$(document).ready(function() {
+    $('#laporanTable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "ajax": {
+            "url": "LaporanController/getLaporanData",
+            "type": "POST"
+        },
+        "columns": [
+            { "data": "uid" },
+            { "data": "nama" },
+            { "data": "kategori" },
+            { "data": "subkategori" }
+        ]
+    });
+});
+
 dataUser();
 function dataUser(){
   $.ajax({

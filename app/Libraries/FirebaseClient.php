@@ -98,11 +98,22 @@ class FirebaseClient
     }
 
     // Laporan
+    public function getAllLaporanOnly()
+    {
+        // $AllLaporan = [];
+        $collection = $this->firestore->collection('Laporan');
+        $documents = $collection->documents();
+
+
+
+        return $documents;
+    }
+
         public function getAllLaporan()
     {
         $AllLaporan = [];
-        $collection = $this->firestore->collection('Laporan');
-        $documents = $collection->documents();
+            $documents = $this->getAllLaporanOnly();
+
 
         foreach ($documents as $document) {
             $laporanData = $document->data();
@@ -112,6 +123,7 @@ class FirebaseClient
 
         return $AllLaporan;
     }
+    
     
     public function getLaporan($id)
     {
@@ -127,8 +139,8 @@ class FirebaseClient
     }
     public function countLaporanPerBulan($tahun)
 {
-    $collection = $this->firestore->collection('Laporan');
-    $documents = $collection->documents();
+    // $collection = $this->firestore->collection('Laporan');
+    $documents = $this->getAllLaporanOnly();
 
     $dataPerBulan = [];
 
@@ -162,11 +174,62 @@ class FirebaseClient
 
     return $result;
 }
+public function getLaporanData($draw=null,$start=null,$length=null,$searchValue=null)
+{
+    
+
+    $collection = $this->firestore->collection('Laporan');
+    $query = $collection->where('status', '=', '0');
+    $documents = $query->documents();
+
+    $dataLaporan = [];
+
+    foreach ($documents as $document) {
+        $data = $document->data();
+        $data['uid'] = $document->id(); // Menambahkan UID ke data Laporan
+        $dataLaporan[] = $data;
+    }
+
+    // Filtering data berdasarkan search value
+    $filteredData = [];
+    if (!empty($searchValue)) {
+        foreach ($dataLaporan as $data) {
+            if (stripos($data['nama'], $searchValue) !== false ||
+                stripos($data['kategori'], $searchValue) !== false ||
+                stripos($data['subkategori'], $searchValue) !== false) {
+                $filteredData[] = $data;
+            }
+        }
+    } else {
+        $filteredData = $dataLaporan;
+    }
+
+    $totalRecords = count($filteredData);
+
+    // Mengurutkan data berdasarkan UID secara ascending
+    usort($filteredData, function ($a, $b) {
+        return $a['uid'] <=> $b['uid'];
+    });
+
+    // Membatasi jumlah data yang ditampilkan sesuai dengan start dan length
+    $pagedData = array_slice($filteredData, $start, $length);
+
+    $response = [
+        'draw' => intval($draw),
+        'recordsTotal' => count($dataLaporan),
+        'recordsFiltered' => $totalRecords,
+        'data' => $pagedData,
+    ];
+
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}
 
 public function countLaporanByRating($tahun)
 {
-    $collection = $this->firestore->collection('Laporan');
-    $documents = $collection->documents();
+    // $collection = $this->firestore->collection('Laporan');
+    $documents =     $documents = $this->getAllLaporanOnly();
+
 
     $dataRating = [];
     $ratingCategories = ['Sangat Tidak Berkualitas', 'Tidak Berkualitas', 'Cukup Berkualitas', 'Berkualitas', 'Sangat Berkualitas'];
