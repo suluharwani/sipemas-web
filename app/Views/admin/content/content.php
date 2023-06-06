@@ -88,34 +88,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                           
-                            <div class="col-12 col-xl-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Daftar Pengaduan Belum Dibaca</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table id="laporanTable" class="table table-hover table-lg">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID Laporan</th>
-                                                        <th>Tanggal</th>
-                                                        <th>Kategori</th>
-                                                        <th>Rating</th>
-                                                        <!-- tambahkan kolom lain sesuai kebutuhan -->
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <!-- data Laporan akan ditampilkan di sini -->
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="col-12 col-lg-3">
                         <div class="card">
@@ -133,54 +106,126 @@
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h4>Recent Messages</h4>
-                            </div>
-                            <div class="card-content pb-4">
-                                <div class="recent-message d-flex px-4 py-3">
-                                    <div class="avatar avatar-lg">
-                                        <img src="<?=base_url('assets/adm')?>/assets/images/faces/4.jpg">
-                                    </div>
-                                    <div class="name ms-4">
-                                        <h5 class="mb-1">Hank Schrader</h5>
-                                        <h6 class="text-muted mb-0">@johnducky</h6>
-                                    </div>
-                                </div>
-                                <div class="recent-message d-flex px-4 py-3">
-                                    <div class="avatar avatar-lg">
-                                        <img src="<?=base_url('assets/adm')?>/assets/images/faces/5.jpg">
-                                    </div>
-                                    <div class="name ms-4">
-                                        <h5 class="mb-1">Dean Winchester</h5>
-                                        <h6 class="text-muted mb-0">@imdean</h6>
-                                    </div>
-                                </div>
-                                <div class="recent-message d-flex px-4 py-3">
-                                    <div class="avatar avatar-lg">
-                                        <img src="<?=base_url('assets/adm')?>/assets/images/faces/1.jpg">
-                                    </div>
-                                    <div class="name ms-4">
-                                        <h5 class="mb-1">John Dodol</h5>
-                                        <h6 class="text-muted mb-0">@dodoljohn</h6>
-                                    </div>
-                                </div>
-                                <div class="px-4">
-                                    <button class='btn btn-block btn-xl btn-outline-primary font-bold mt-3'>Start Conversation</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
                                 <h4>Rating Aduan</h4>
                             </div>
                             <div class="card-body">
                                 <div id="chart-visitors-profile"></div>
                             </div>
                         </div>
+                        
                     </div>
-                </section>
+                    <div class="col-12 col-lg-12">
+                       <div class="row">
+
+                        <div class="col-12 col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Daftar Pengaduan Belum Dibaca</h4>
+                                </div>
+                                <div class="card-body">
+                                    <button class="btn btn-primary sudahDibaca">Laporan Sudah Dibaca</button>
+                                    <button class="btn btn-success sudahDibalas">Laporan Sudah Dibalas</button>
+                                    <div class="table-responsive">
+                                        <table id="laporanTable" class="table table-hover table-lg">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID Laporan</th>
+                                                    <th>Nama</th>
+                                                    <th>Jenis Layanan</th>
+                                                    <th>Sub Layanan</th>
+                                                    <th>Action</th>
+                                                    <!-- tambahkan kolom lain sesuai kebutuhan -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- data Laporan akan ditampilkan di sini -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- modal -->
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalDibaca" data-bs-focus="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tabel Laporan Sudah Dibaca</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-            <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-            <script src="<?=base_url('assets/adm')?>/assets/extensions/apexcharts/apexcharts.min.js"></script>
-            <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-            <script src="<?=base_url('assets/adm')?>/assets/js/pages/dashboard.js"></script>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table id="laporanTableDibaca" class="table table-hover table-lg">
+                        <thead>
+                            <tr>
+                                <th>ID Laporan</th>
+                                <th>Nama</th>
+                                <th>Jenis Layanan</th>
+                                <th>Sub Layanan</th>
+                                <th>Action</th>
+                                <!-- tambahkan kolom lain sesuai kebutuhan -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- data Laporan akan ditampilkan di sini -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                Catatan:
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalDibalas" data-bs-focus="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tabel Laporan Sudah Dibalas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="table-responsive">
+            <table id="laporanTableDibalas" class="table table-hover table-lg">
+                <thead>
+                    <tr>
+                        <th>ID Laporan</th>
+                        <th>Nama</th>
+                        <th>Jenis Layanan</th>
+                        <th>Sub Layanan</th>
+                        <th>Action</th>
+                        <!-- tambahkan kolom lain sesuai kebutuhan -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- data Laporan akan ditampilkan di sini -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        Catatan:
+    </div>
+</div>
+</div>
+</div>
+<!-- modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="<?=base_url('assets/adm')?>/assets/extensions/apexcharts/apexcharts.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="<?=base_url('assets/adm')?>/assets/js/pages/dashboard.js"></script>

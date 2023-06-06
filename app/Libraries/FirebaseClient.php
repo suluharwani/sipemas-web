@@ -137,6 +137,26 @@ class FirebaseClient
             return null;
         }
     }
+    public function getBalasanLaporan($id)
+    {
+      $adminRef = $this->firestore->collection('Balasan')->where('idlaporan', '=', $id)->limit(1);
+        $snapshot = $adminRef->documents();
+    
+        if (!$snapshot->isEmpty()) {
+            foreach ($snapshot as $document) {
+                $adminData = $document->data();
+                $adminData['id'] = $document->id();
+    
+                return $adminData;
+            }
+        }
+    
+        return null;
+    }
+    public function deleteBalasan($id){
+        $this->firestore->collection('Balasan')->document($id)->delete();
+
+    }
     public function countLaporanPerBulan($tahun)
 {
     // $collection = $this->firestore->collection('Laporan');
@@ -224,7 +244,106 @@ public function getLaporanData($draw=null,$start=null,$length=null,$searchValue=
     header('Content-Type: application/json');
     echo json_encode($response);
 }
+public function getLaporanDataDibalas($draw=null,$start=null,$length=null,$searchValue=null)
+{
+    
 
+    $collection = $this->firestore->collection('Laporan');
+    $query = $collection->where('status', '=', '2');
+    $documents = $query->documents();
+
+    $dataLaporan = [];
+
+    foreach ($documents as $document) {
+        $data = $document->data();
+        $data['uid'] = $document->id(); // Menambahkan UID ke data Laporan
+        $dataLaporan[] = $data;
+    }
+
+    // Filtering data berdasarkan search value
+    $filteredData = [];
+    if (!empty($searchValue)) {
+        foreach ($dataLaporan as $data) {
+            if (stripos($data['nama'], $searchValue) !== false ||
+                stripos($data['kategori'], $searchValue) !== false ||
+                stripos($data['subkategori'], $searchValue) !== false) {
+                $filteredData[] = $data;
+            }
+        }
+    } else {
+        $filteredData = $dataLaporan;
+    }
+
+    $totalRecords = count($filteredData);
+
+    // Mengurutkan data berdasarkan UID secara ascending
+    usort($filteredData, function ($a, $b) {
+        return $a['uid'] <=> $b['uid'];
+    });
+
+    // Membatasi jumlah data yang ditampilkan sesuai dengan start dan length
+    $pagedData = array_slice($filteredData, $start, $length);
+
+    $response = [
+        'draw' => intval($draw),
+        'recordsTotal' => count($dataLaporan),
+        'recordsFiltered' => $totalRecords,
+        'data' => $pagedData,
+    ];
+
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}
+public function getLaporanDataDibaca($draw=null,$start=null,$length=null,$searchValue=null)
+{
+    
+
+    $collection = $this->firestore->collection('Laporan');
+    $query = $collection->where('status', '=', '1');
+    $documents = $query->documents();
+
+    $dataLaporan = [];
+
+    foreach ($documents as $document) {
+        $data = $document->data();
+        $data['uid'] = $document->id(); // Menambahkan UID ke data Laporan
+        $dataLaporan[] = $data;
+    }
+
+    // Filtering data berdasarkan search value
+    $filteredData = [];
+    if (!empty($searchValue)) {
+        foreach ($dataLaporan as $data) {
+            if (stripos($data['nama'], $searchValue) !== false ||
+                stripos($data['kategori'], $searchValue) !== false ||
+                stripos($data['subkategori'], $searchValue) !== false) {
+                $filteredData[] = $data;
+            }
+        }
+    } else {
+        $filteredData = $dataLaporan;
+    }
+
+    $totalRecords = count($filteredData);
+
+    // Mengurutkan data berdasarkan UID secara ascending
+    usort($filteredData, function ($a, $b) {
+        return $a['uid'] <=> $b['uid'];
+    });
+
+    // Membatasi jumlah data yang ditampilkan sesuai dengan start dan length
+    $pagedData = array_slice($filteredData, $start, $length);
+
+    $response = [
+        'draw' => intval($draw),
+        'recordsTotal' => count($dataLaporan),
+        'recordsFiltered' => $totalRecords,
+        'data' => $pagedData,
+    ];
+
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}
 public function countLaporanByRating($tahun)
 {
     // $collection = $this->firestore->collection('Laporan');
@@ -274,7 +393,12 @@ public function countLaporanByRating($tahun)
 
         return $newLaporanRef->id();
     }
+   public function kirimBalasan($dataLaporan){
+    $newBalasanRef = $this->firestore->collection('Balasan')->newDocument();
+        $newBalasanRef->set($dataLaporan);
 
+        return $newBalasanRef->id();
+   }
     public function updateLaporan($id, $data)
     {
         $this->firestore->collection('Laporan')->document($id)->set($data);

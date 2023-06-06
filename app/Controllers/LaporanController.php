@@ -189,5 +189,151 @@ class LaporanController extends BaseController
     $searchValue = $_POST['search']['value'];
     return $firebase->getLaporanData($draw,$start,$length,$searchValue);
 }
+public function getLaporanDataDibaca()
+{
+    $firebase = new FirebaseClient();
+    $draw = $_POST['draw'];
+    $start = $_POST['start'];
+    $length = $_POST['length'];
+    $searchValue = $_POST['search']['value'];
+    return $firebase->getLaporanDataDibaca($draw,$start,$length,$searchValue);
+}
+public function getLaporanDataDibalas()
+{
+    $firebase = new FirebaseClient();
+    $draw = $_POST['draw'];
+    $start = $_POST['start'];
+    $length = $_POST['length'];
+    $searchValue = $_POST['search']['value'];
+    return $firebase->getLaporanDataDibalas($draw,$start,$length,$searchValue);
+}
+public function getLaporanById(){
+    $firebase = new FirebaseClient();
+    $uid = $_POST['uid'];
 
+    return json_encode($firebase->getLaporan($uid));
+
+}
+public function getBalasanLaporanById(){
+        $firebase = new FirebaseClient();
+    $uid = $_POST['uid'];
+
+    return json_encode($firebase->getBalasanLaporan($uid));
+
+}
+public function KirimBalasan(){
+    $firebase = new FirebaseClient();
+    $uid = $_POST['uid'];
+
+    $dataLap = $firebase->getLaporan($uid);
+    $dataLaporan['iduser'] = $dataLap['iduser'];
+    $dataLaporan['idlaporan'] =  $uid;
+    $dataLaporan['jenis_kelamin'] = $dataLap['jenis_kelamin'];
+    $dataLaporan['kategori'] = $dataLap['kategori'];
+    $dataLaporan['nama'] = $dataLap['nama'];
+    $dataLaporan['pengaduan'] = $dataLap['pengaduan'];
+    $dataLaporan['rating'] = $dataLap['rating'];
+    $dataLaporan['status'] = "2";
+    $dataLaporan['subkategori'] = $dataLap['subkategori'];
+    $dataLaporan['tanggal'] = round(microtime(true) * 1000);
+    $dataLaporan['balasan'] = $_POST['balasan'];
+
+    $KirimBalasan = $firebase->kirimBalasan($dataLaporan);
+ if ($KirimBalasan) {
+            $data = $dataLap;
+            $data['status'] = "2";
+            $firebase->updateLaporan($uid, $data);
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NO_CONTENT);
+        } else {
+            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika admin tidak ditemukan
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
+            $response->setJSON([
+                'status' => 'error',
+                'message' => 'Laporan tidak ada',
+            ]);
+        }
+
+        return $response;
+
+}
+public function TandaiDibaca(){
+$firebase = new FirebaseClient();
+    $uid = $_POST['uid'];
+    $dataLap = $firebase->getLaporan($uid);
+
+    // $KirimBalasan = $firebase->kirimBalasan($dataLaporan);
+ if ($dataLap) {
+            $data = $dataLap;
+            $data['status'] = "1";
+            $firebase->updateLaporan($uid, $data);
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NO_CONTENT);
+        } else {
+            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika admin tidak ditemukan
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
+            $response->setJSON([
+                'status' => 'error',
+                'message' => 'Laporan tidak ada',
+            ]);
+        }
+
+        return $response;
+}
+public function TandaiBelumDibaca(){
+$firebase = new FirebaseClient();
+    $uid = $_POST['uid'];
+    $dataLap = $firebase->getLaporan($uid);
+
+    // $KirimBalasan = $firebase->kirimBalasan($dataLaporan);
+ if ($dataLap) {
+            $data = $dataLap;
+            $data['status'] = "0";
+            $firebase->updateLaporan($uid, $data);
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NO_CONTENT);
+        } else {
+            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika admin tidak ditemukan
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
+            $response->setJSON([
+                'status' => 'error',
+                'message' => 'Laporan tidak ada',
+            ]);
+        }
+
+        return $response;
+}
+public function HapusBalasLaporan(){
+    $firebase = new FirebaseClient();
+    $uid = $_POST['uid'];
+
+    $dataBalasan = $firebase->getBalasanLaporan($uid);
+    $idlaporan = $dataBalasan['idlaporan'];
+    $dataLap = $firebase->getLaporan($idlaporan);
+
+    // $KirimBalasan = $firebase->kirimBalasan($dataLaporan);
+ if ($dataBalasan) {
+            $data = $dataLap;
+            $data['status'] = "1";
+            $firebase->updateLaporan($idlaporan, $data);
+            $firebase->deleteBalasan($uid);
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NO_CONTENT);
+        } else {
+            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika admin tidak ditemukan
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
+            $response->setJSON([
+                'status' => 'error',
+                'message' => 'Laporan tidak ada',
+            ]);
+        }
+
+        return $response;
+
+
+}
 }

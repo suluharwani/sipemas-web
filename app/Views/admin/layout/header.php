@@ -12,6 +12,10 @@
     <link rel="shortcut icon" href="<?=base_url('assets/adm')?>/assets/images/logo/favicon.png" type="image/png">
     
 <link rel="stylesheet" href="<?=base_url('assets/adm')?>/assets/css/shared/iconly.css">
+<style type="text/css">
+    .swal-wide{
+    width:75% !important;
+}</style>
 
 </head>
 

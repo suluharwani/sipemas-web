@@ -69,6 +69,15 @@ $routes->post('AdminController/index', 'AdminController::index');
 $routes->post('LaporanController/countchart', 'LaporanController::countchart');
 $routes->post('LaporanController/countrating', 'LaporanController::countrating');
 $routes->post('LaporanController/getLaporanData', 'LaporanController::getLaporanData');
+$routes->post('LaporanController/getLaporanById', 'LaporanController::getLaporanById');
+$routes->post('LaporanController/KirimBalasan', 'LaporanController::KirimBalasan');
+$routes->post('LaporanController/TandaiDibaca', 'LaporanController::TandaiDibaca');
+$routes->post('LaporanController/getLaporanDataDibaca', 'LaporanController::getLaporanDataDibaca');
+$routes->post('LaporanController/getLaporanDataDibalas', 'LaporanController::getLaporanDataDibalas');
+$routes->post('LaporanController/getBalasanLaporanById', 'LaporanController::getBalasanLaporanById');
+$routes->post('LaporanController/HapusBalasLaporan', 'LaporanController::HapusBalasLaporan');
+$routes->post('LaporanController/TandaiBelumDibaca', 'LaporanController::TandaiBelumDibaca');
+
 
 
 /*
