@@ -134,4 +134,38 @@ class UserController extends BaseController
         return $response;
     }
 
+
+public function getUserDatatables()
+{
+    $firebase = new FirebaseClient();
+    $draw = $_POST['draw'];
+    $start = $_POST['start'];
+    $length = $_POST['length'];
+    $searchValue = $_POST['search']['value'];
+    return $firebase->getUserDatatables($draw,$start,$length,$searchValue);
+}
+public function deleteUser(){
+    $firebase = new FirebaseClient();
+    $uid = $_POST['uid'];
+
+    $deleted = $firebase->deleteUser($uid);
+
+
+ if ($deleted) {
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NO_CONTENT);
+        } else {
+            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika admin tidak ditemukan
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
+            $response->setJSON([
+                'status' => 'error',
+                'message' => 'Gagal dihapus',
+            ]);
+        }
+
+        return $response;
+
+
+}
 }

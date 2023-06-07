@@ -23,7 +23,47 @@ $(document).ready(function() {
 	let tableAdmin;
 	let tableUser;
 	let tableContent;
+ // Membuka modal saat tombol diklik
+	
+	$('.buttonContent').click(function() {
+	
+Swal.fire('Belum ada pengembangan software di bagian content')
+    
+	});
+	$('.buttonUser').click(function() {
+		$('#modalUser').modal('show');
 
+    // Membuat tabel DataTables saat modal dibuka
+		if (!tableUser) {
+			tableUser = $('#tableUser').DataTable({
+				"processing": true,
+				"serverSide": true,
+				"ajax": {
+					"url": 'UserController/getUserDatatables', 
+					"type": 'POST'
+				},
+				"columns": [
+				{ 
+					"data": "firstName",
+					"render": function(data, type, row) {
+						return row.firstName + ' ' + row.lastName;
+					}
+				},
+				{ "data": "email" },
+				{ "data": "id",
+				"render": function(data, type, row, meta) {
+
+					return '<button class="btn btn-danger" onclick="hapusUser(\'' + data + '\')">Hapus</button>';
+					
+				}
+			}
+			]
+			});
+		} else {
+      // Memperbarui data tabel saat modal dibuka jika tabel sudah ada
+			tableUser.ajax.reload();
+		}
+	});
   // Membuka modal saat tombol diklik
 	$('.buttonAdmin').click(function() {
 		$('#modalAdmin').modal('show');
@@ -173,6 +213,46 @@ $(document).ready(function() {
 
 
 // })
+
+function hapusUser(uid){
+	Swal.fire({
+		title: 'Apakah anda yakin?',
+		text: "User akan dihapus!",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Konfirmasi!'
+	}).then((result) => {
+		$.ajax({
+			type : "POST",
+			url  : base_url+'UserController/deleteUser',
+			async : false,
+      // dataType : "JSON",
+			data : {uid:uid},
+			success: function(data){
+				$('#tableUser').DataTable().ajax.reload();
+				if (result.isConfirmed) {
+					Swal.fire(
+						'Berhasil!',
+						'User berhasil dihapus',
+						'success'
+						)
+				}
+			},
+			error: function(xhr){
+				let d = JSON.parse(xhr.responseText);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: `${d.message}`,
+					footer: '<a href="">Why do I have this issue?</a>'
+				})
+			}
+		});
+		
+	})
+}
 $('.downloadLaporan').click(function(){
    Swal.fire({
       title: "Download Laporan Masuk",

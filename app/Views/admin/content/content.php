@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 
 <div class="page-heading">
-    <h3>Profile Statistics</h3>
+    <h3>Sipemas Statistics</h3>
 </div>
 <div class="page-content">
     <section class="row">
@@ -46,7 +46,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
                                         
-                                            <button class="btn btn-primary iconly-boldAdd-User stats-icon green mb-2"></button>
+                                            <button class="btn btn-primary iconly-boldAdd-User stats-icon green mb-2 buttonUser"></button>
 
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
@@ -63,7 +63,7 @@
                                     <div class="row">
                                         <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
                                           
-                                            <button class="btn btn-primary iconly-boldBookmark stats-icon red mb-2"></button>
+                                            <button class="btn btn-primary iconly-boldBookmark stats-icon red mb-2 buttonContent" ></button>
                                         </div>
                                         <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                             <h6 class="text-muted font-semibold">Content</h6>
@@ -241,6 +241,39 @@
                         <th>Email</th>
                         <th>Level</th>
                         <th>Status</th>
+                        <th>Action</th>
+                        <!-- tambahkan kolom lain sesuai kebutuhan -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- data Laporan akan ditampilkan di sini -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        Catatan:
+    </div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="modalUser" data-bs-focus="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tabel User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="tableUser" class="table table-hover table-lg">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Email</th>
                         <th>Action</th>
                         <!-- tambahkan kolom lain sesuai kebutuhan -->
                     </tr>

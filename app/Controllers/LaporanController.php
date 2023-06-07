@@ -342,7 +342,7 @@ public function downloadLaporan()
 {   
 
     $startTimestamp = strtotime($_POST['startTimestamp'])*1000;
-    $endTimestamp = strtotime($_POST['endTimestamp'])*1000;
+    $endTimestamp = (strtotime($_POST['endTimestamp'])*1000) + 86400000 ;
     $firebase = new FirebaseClient();
 
     $laporanData = $firebase->downloadLaporan($startTimestamp,$endTimestamp);
@@ -355,16 +355,44 @@ public function downloadLaporan()
 
     // Membuat HTML laporan
     $html = '<h1>Laporan</h1>';
-    $html .= '<table>';
-    $html .= '<tr><th>Tanggal</th><th>Judul</th><th>Keterangan</th></tr>';
+    $html .= "Tanggal ".date('d-m-Y', ($startTimestamp/1000))." sampai tanggal ".date('d-m-Y', ($endTimestamp/1000));
+    $html .= '<table border="1px" >';
+    $html .= '<tr><th>No</th><th>Tanggal</th><th>Nama</th><th>Jenis Kelamin</th><th>Pengaduan</th><th>Rating</th></tr>';
+    $no = 0;
+    $ratingB5 = 0;
+    $ratingB4 = 0;
+    $ratingB3 = 0;
+    $ratingB2 = 0;
+    $ratingB1 = 0;
+
     foreach ($laporanData as $laporan) {
-        $tanggal = date('d-m-Y', $laporan['tanggal']);
+        $no++;
+        $tanggal = date('d-m-Y', ($laporan['tanggal']/1000));
         $nama = $laporan['nama'];
         $pengaduan = $laporan['pengaduan'];
-        $html .= "<tr><td>$tanggal</td><td>$nama</td><td>$pengaduan</td></tr>";
-    }
-    $html .= '</table>';
+        $rating = $laporan['rating'];
+        $jenis_kelamin = $laporan['jenis_kelamin'];
+        $html .= "<tr><td>$no</td><td>$tanggal</td><td>$nama</td><td>$jenis_kelamin</td><td>$pengaduan</td><td>$rating</td></tr>";
+        if ($rating == "Sangat Berkualitas") {
+            $ratingB5 ++;
+        }else if ($rating == "Berkualitas") {
+            $ratingB4 ++;
+        }else if ($rating == "Cukup Berkualitas") {
+            $ratingB3 ++;
+        }else if ($rating == "Tidak Berkualitas") {
+            $ratingB2 ++;
+        }else if ($rating == "Sangat Tidak Berkualitas") {
+            $ratingB1 ++;
+        }
 
+    }
+
+    $html .= '</table>';
+    $html .= 'Statistik Rating';
+    $html .= "<table border = '1px'><tr><td>Sangat Berkualitas</td><td>{$ratingB5}</td></tr><tr><td>Berkualitas</td><td>{$ratingB4}</td></tr><tr><td>Cukup Berkualitas</td><td>{$ratingB3}</td><tr><td>Tidak Berkualitas</td><td>{$ratingB2}</td></tr><tr><td>Sangat Tidak Berkualitas</td><td>{$ratingB1}</td></tr></tr>
+    </table>";
+    // var_dump($ratingB1);
+    // die();
     // Menginisialisasi objek Dompdf
     $dompdfOptions = new Options();
     $dompdfOptions->set('defaultFont', 'Arial');

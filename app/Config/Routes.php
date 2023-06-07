@@ -61,6 +61,8 @@ $routes->post('login', 'Login::index');
 
 $routes->get('logout', 'Login::logout');
 // ajax
+$routes->post('UserController/getUserDatatables', 'UserController::getUserDatatables');
+$routes->post('UserController/deleteUser', 'UserController::deleteUser');
 $routes->post('UserController/index', 'UserController::index');
 $routes->post('LaporanController/index', 'LaporanController::index');
 $routes->post('ContentController/index', 'ContentController::index');

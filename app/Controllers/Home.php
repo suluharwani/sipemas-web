@@ -7,6 +7,7 @@ class Home extends BaseController
 {
     public function index()
     {
+        return redirect()->to('administrator');
 
     }
 
@@ -14,7 +15,7 @@ class Home extends BaseController
   public function content()
     {
         // Tampilkan view untuk membuat konten
-        return view('content');
+        // return view('content');
     }
 
 }

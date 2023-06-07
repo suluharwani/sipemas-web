@@ -13,9 +13,9 @@ class FirebaseClient
     protected $firestore;
     protected $storage;
 
-        public function __construct()
+    public function __construct()
     {
-        
+
         $config = [
             'keyFilePath' => APPPATH . 'Libraries/service-account.json',
         ];
@@ -28,7 +28,7 @@ class FirebaseClient
         $serviceAccount = ServiceAccount::fromValue($serviceAccountPath);
 
         $factory = (new Factory())
-            ->withServiceAccount($serviceAccount);
+        ->withServiceAccount($serviceAccount);
 
         // $this->firestore = $factory->createFirestore();
         $this->storage = new StorageClient(['keyFilePath' => $serviceAccountPath]);
@@ -61,19 +61,19 @@ class FirebaseClient
     {
         $adminRef = $this->firestore->collection('admin')->where('email', '=', $email)->limit(1);
         $snapshot = $adminRef->documents();
-    
+
         if (!$snapshot->isEmpty()) {
             foreach ($snapshot as $document) {
                 $adminData = $document->data();
                 $adminData['id'] = $document->id();
-    
+
                 return $adminData;
             }
         }
-    
+
         return null;
     }
-     public function getAdminById($id)
+    public function getAdminById($id)
     {
       // $adminRef = $this->firestore->collection('admin');
       //   $snapshot = $adminRef->documents($id);
@@ -85,21 +85,21 @@ class FirebaseClient
         } else {
             return null;
         }
-    
+
         return null;
     }
     public function getAdminDatatables($draw=null,$start=null,$length=null,$searchValue=null)
-{
-    
+    {
 
-    $collection = $this->firestore->collection('admin');
+
+        $collection = $this->firestore->collection('admin');
     // $query = $collection->where('status', '=', 1);
-    $documents = $collection->documents();
+        $documents = $collection->documents();
 
-    $dataAdmin = [];
+        $dataAdmin = [];
 
-    foreach ($documents as $document) {
-        $data = $document->data();
+        foreach ($documents as $document) {
+            $data = $document->data();
         $data['uid'] = $document->id(); // Menambahkan UID ke data Laporan
         $dataAdmin[] = $data;
     }
@@ -112,123 +112,123 @@ class FirebaseClient
                 stripos($data['nama_depan'], $searchValue) !== false ||
                 stripos($data['nama_belakang'], $searchValue) !== false) {
                 $filteredData[] = $data;
-            }
         }
-    } else {
-        $filteredData = $dataAdmin;
     }
+} else {
+    $filteredData = $dataAdmin;
+}
 
-    $totalRecords = count($filteredData);
+$totalRecords = count($filteredData);
 
     // Mengurutkan data berdasarkan UID secara ascending
-    usort($filteredData, function ($a, $b) {
-        return $a['uid'] <=> $b['uid'];
-    });
+usort($filteredData, function ($a, $b) {
+    return $a['uid'] <=> $b['uid'];
+});
 
     // Membatasi jumlah data yang ditampilkan sesuai dengan start dan length
-    $pagedData = array_slice($filteredData, $start, $length);
+$pagedData = array_slice($filteredData, $start, $length);
 
-    $response = [
-        'draw' => intval($draw),
-        'recordsTotal' => count($dataAdmin),
-        'recordsFiltered' => $totalRecords,
-        'data' => $pagedData,
-    ];
+$response = [
+    'draw' => intval($draw),
+    'recordsTotal' => count($dataAdmin),
+    'recordsFiltered' => $totalRecords,
+    'data' => $pagedData,
+];
 
-    header('Content-Type: application/json');
-    echo json_encode($response);
+header('Content-Type: application/json');
+echo json_encode($response);
 }
-    public function createAdmin($data)
-    {
-        if ($this->getAdmin($data['email']) == null) {
+public function createAdmin($data)
+{
+    if ($this->getAdmin($data['email']) == null) {
         $newAdminRef = $this->firestore->collection('admin')->newDocument();
         $newAdminRef->set($data);
         
         return $newAdminRef->id();
-        }else{
-            $response = service('response');
-            $response->setStatusCode(ResponseInterface::HTTP_INTERNAL_SERVER_ERROR);
-            $response->setJSON([
-                'status' => 'error',
-                'message' => 'Gagal create admin, email sudah dipakai',
-            ]);
-        }
-        
+    }else{
+        $response = service('response');
+        $response->setStatusCode(ResponseInterface::HTTP_INTERNAL_SERVER_ERROR);
+        $response->setJSON([
+            'status' => 'error',
+            'message' => 'Gagal create admin, email sudah dipakai',
+        ]);
     }
-    public function deleteAdmin($id)
-    {
-        return $this->firestore->collection('admin')->document($id)->delete();
-    }
-    public function updateAdmin($id, $data)
-    {
-        $this->firestore->collection('admin')->document($id)->set($data);
-    }
-    public function aktifkanAdmin($id){
 
-    }
+}
+public function deleteAdmin($id)
+{
+    return $this->firestore->collection('admin')->document($id)->delete();
+}
+public function updateAdmin($id, $data)
+{
+    $this->firestore->collection('admin')->document($id)->set($data);
+}
+public function aktifkanAdmin($id){
+
+}
 
 
     // Laporan
-    public function getAllLaporanOnly()
-    {
+public function getAllLaporanOnly()
+{
         // $AllLaporan = [];
-        $collection = $this->firestore->collection('Laporan');
-        $documents = $collection->documents();
+    $collection = $this->firestore->collection('Laporan');
+    $documents = $collection->documents();
 
 
 
-        return $documents;
-    }
+    return $documents;
+}
 
-        public function getAllLaporan()
-    {
-        $AllLaporan = [];
-            $documents = $this->getAllLaporanOnly();
+public function getAllLaporan()
+{
+    $AllLaporan = [];
+    $documents = $this->getAllLaporanOnly();
 
 
-        foreach ($documents as $document) {
-            $laporanData = $document->data();
-            $laporanData['id'] = $document->id();
-            $AllLaporan[] = $laporanData;
-        }
-
-        return $AllLaporan;
-    }
-    
-    
-    public function getLaporan($id)
-    {
-        $document = $this->firestore->collection('Laporan')->document($id)->snapshot();
+    foreach ($documents as $document) {
         $laporanData = $document->data();
-
-        if ($laporanData) {
-            $laporanData['id'] = $id;
-            return $laporanData;
-        } else {
-            return null;
-        }
+        $laporanData['id'] = $document->id();
+        $AllLaporan[] = $laporanData;
     }
-    public function getBalasanLaporan($id)
-    {
-      $adminRef = $this->firestore->collection('Balasan')->where('idlaporan', '=', $id)->limit(1);
-        $snapshot = $adminRef->documents();
-    
-        if (!$snapshot->isEmpty()) {
-            foreach ($snapshot as $document) {
-                $adminData = $document->data();
-                $adminData['id'] = $document->id();
-    
-                return $adminData;
-            }
-        }
-    
+
+    return $AllLaporan;
+}
+
+
+public function getLaporan($id)
+{
+    $document = $this->firestore->collection('Laporan')->document($id)->snapshot();
+    $laporanData = $document->data();
+
+    if ($laporanData) {
+        $laporanData['id'] = $id;
+        return $laporanData;
+    } else {
         return null;
     }
-    public function deleteBalasan($id){
-        $this->firestore->collection('Balasan')->document($id)->delete();
+}
+public function getBalasanLaporan($id)
+{
+  $adminRef = $this->firestore->collection('Balasan')->where('idlaporan', '=', $id)->limit(1);
+  $snapshot = $adminRef->documents();
 
+  if (!$snapshot->isEmpty()) {
+    foreach ($snapshot as $document) {
+        $adminData = $document->data();
+        $adminData['id'] = $document->id();
+
+        return $adminData;
     }
-    public function countLaporanPerBulan($tahun)
+}
+
+return null;
+}
+public function deleteBalasan($id){
+    $this->firestore->collection('Balasan')->document($id)->delete();
+
+}
+public function countLaporanPerBulan($tahun)
 {
     // $collection = $this->firestore->collection('Laporan');
     $documents = $this->getAllLaporanOnly();
@@ -267,7 +267,7 @@ class FirebaseClient
 }
 public function getLaporanData($draw=null,$start=null,$length=null,$searchValue=null)
 {
-    
+
 
     $collection = $this->firestore->collection('Laporan');
     $query = $collection->where('status', '=', '0');
@@ -289,35 +289,35 @@ public function getLaporanData($draw=null,$start=null,$length=null,$searchValue=
                 stripos($data['kategori'], $searchValue) !== false ||
                 stripos($data['subkategori'], $searchValue) !== false) {
                 $filteredData[] = $data;
-            }
         }
-    } else {
-        $filteredData = $dataLaporan;
     }
+} else {
+    $filteredData = $dataLaporan;
+}
 
-    $totalRecords = count($filteredData);
+$totalRecords = count($filteredData);
 
     // Mengurutkan data berdasarkan UID secara ascending
-    usort($filteredData, function ($a, $b) {
-        return $a['uid'] <=> $b['uid'];
-    });
+usort($filteredData, function ($a, $b) {
+    return $a['uid'] <=> $b['uid'];
+});
 
     // Membatasi jumlah data yang ditampilkan sesuai dengan start dan length
-    $pagedData = array_slice($filteredData, $start, $length);
+$pagedData = array_slice($filteredData, $start, $length);
 
-    $response = [
-        'draw' => intval($draw),
-        'recordsTotal' => count($dataLaporan),
-        'recordsFiltered' => $totalRecords,
-        'data' => $pagedData,
-    ];
+$response = [
+    'draw' => intval($draw),
+    'recordsTotal' => count($dataLaporan),
+    'recordsFiltered' => $totalRecords,
+    'data' => $pagedData,
+];
 
-    header('Content-Type: application/json');
-    echo json_encode($response);
+header('Content-Type: application/json');
+echo json_encode($response);
 }
 public function getLaporanDataDibalas($draw=null,$start=null,$length=null,$searchValue=null)
 {
-    
+
 
     $collection = $this->firestore->collection('Laporan');
     $query = $collection->where('status', '=', '2');
@@ -339,35 +339,35 @@ public function getLaporanDataDibalas($draw=null,$start=null,$length=null,$searc
                 stripos($data['kategori'], $searchValue) !== false ||
                 stripos($data['subkategori'], $searchValue) !== false) {
                 $filteredData[] = $data;
-            }
         }
-    } else {
-        $filteredData = $dataLaporan;
     }
+} else {
+    $filteredData = $dataLaporan;
+}
 
-    $totalRecords = count($filteredData);
+$totalRecords = count($filteredData);
 
     // Mengurutkan data berdasarkan UID secara ascending
-    usort($filteredData, function ($a, $b) {
-        return $a['uid'] <=> $b['uid'];
-    });
+usort($filteredData, function ($a, $b) {
+    return $a['uid'] <=> $b['uid'];
+});
 
     // Membatasi jumlah data yang ditampilkan sesuai dengan start dan length
-    $pagedData = array_slice($filteredData, $start, $length);
+$pagedData = array_slice($filteredData, $start, $length);
 
-    $response = [
-        'draw' => intval($draw),
-        'recordsTotal' => count($dataLaporan),
-        'recordsFiltered' => $totalRecords,
-        'data' => $pagedData,
-    ];
+$response = [
+    'draw' => intval($draw),
+    'recordsTotal' => count($dataLaporan),
+    'recordsFiltered' => $totalRecords,
+    'data' => $pagedData,
+];
 
-    header('Content-Type: application/json');
-    echo json_encode($response);
+header('Content-Type: application/json');
+echo json_encode($response);
 }
 public function getLaporanDataDibaca($draw=null,$start=null,$length=null,$searchValue=null)
 {
-    
+
 
     $collection = $this->firestore->collection('Laporan');
     $query = $collection->where('status', '=', '1');
@@ -389,31 +389,31 @@ public function getLaporanDataDibaca($draw=null,$start=null,$length=null,$search
                 stripos($data['kategori'], $searchValue) !== false ||
                 stripos($data['subkategori'], $searchValue) !== false) {
                 $filteredData[] = $data;
-            }
         }
-    } else {
-        $filteredData = $dataLaporan;
     }
+} else {
+    $filteredData = $dataLaporan;
+}
 
-    $totalRecords = count($filteredData);
+$totalRecords = count($filteredData);
 
     // Mengurutkan data berdasarkan UID secara ascending
-    usort($filteredData, function ($a, $b) {
-        return $a['uid'] <=> $b['uid'];
-    });
+usort($filteredData, function ($a, $b) {
+    return $a['uid'] <=> $b['uid'];
+});
 
     // Membatasi jumlah data yang ditampilkan sesuai dengan start dan length
-    $pagedData = array_slice($filteredData, $start, $length);
+$pagedData = array_slice($filteredData, $start, $length);
 
-    $response = [
-        'draw' => intval($draw),
-        'recordsTotal' => count($dataLaporan),
-        'recordsFiltered' => $totalRecords,
-        'data' => $pagedData,
-    ];
+$response = [
+    'draw' => intval($draw),
+    'recordsTotal' => count($dataLaporan),
+    'recordsFiltered' => $totalRecords,
+    'data' => $pagedData,
+];
 
-    header('Content-Type: application/json');
-    echo json_encode($response);
+header('Content-Type: application/json');
+echo json_encode($response);
 }
 public function countLaporanByRating($tahun)
 {
@@ -462,131 +462,180 @@ public function downloadLaporan($startTimestamp,$endTimestamp){
 
     $collection = $this->firestore->collection('Laporan');
     $documents = $collection->where('tanggal', '>=', $startTimestamp)
-                        ->where('tanggal', '<=', $endTimestamp)
-                        ->documents();
+    ->where('tanggal', '<=', $endTimestamp)
+    ->documents();
     foreach ($documents as $document) {
-            $contentData = $document->data();
-            $contentData['id'] = $document->id();
-            $laporan[] = $contentData;
-        }
-
-        return $laporan;
-}
-    public function createLaporan($data)
-    {
-        $newLaporanRef = $this->firestore->collection('Laporan')->newDocument();
-        $newLaporanRef->set($data);
-
-        return $newLaporanRef->id();
-    }
-   public function kirimBalasan($dataLaporan){
-    $newBalasanRef = $this->firestore->collection('Balasan')->newDocument();
-        $newBalasanRef->set($dataLaporan);
-
-        return $newBalasanRef->id();
-   }
-    public function updateLaporan($id, $data)
-    {
-        $this->firestore->collection('Laporan')->document($id)->set($data);
-    }
-
-    public function deleteLaporan($id)
-    {
-        $this->firestore->collection('Laporan')->document($id)->delete();
-    }
-     
-     public function getAllContent()
-    {
-        $contents = [];
-        $collection = $this->firestore->collection('content');
-        $documents = $collection->documents();
-
-        foreach ($documents as $document) {
-            $contentData = $document->data();
-            $contentData['id'] = $document->id();
-            $contents[] = $contentData;
-        }
-
-        return $contents;
-    }
-
-    public function getContent($id)
-    {
-        $document = $this->firestore->collection('content')->document($id)->snapshot();
         $contentData = $document->data();
-
-        if ($contentData) {
-            $contentData['id'] = $id;
-            return $contentData;
-        } else {
-            return null;
-        }
+        $contentData['id'] = $document->id();
+        $laporan[] = $contentData;
     }
 
-    public function createContent($data)
-    {
-        $newContentRef = $this->firestore->collection('content')->newDocument();
-        $newContentRef->set($data);
+    return $laporan;
+}
+public function createLaporan($data)
+{
+    $newLaporanRef = $this->firestore->collection('Laporan')->newDocument();
+    $newLaporanRef->set($data);
 
-        return $newContentRef->id();
+    return $newLaporanRef->id();
+}
+public function kirimBalasan($dataLaporan){
+    $newBalasanRef = $this->firestore->collection('Balasan')->newDocument();
+    $newBalasanRef->set($dataLaporan);
+
+    return $newBalasanRef->id();
+}
+public function updateLaporan($id, $data)
+{
+    $this->firestore->collection('Laporan')->document($id)->set($data);
+}
+
+public function deleteLaporan($id)
+{
+    $this->firestore->collection('Laporan')->document($id)->delete();
+}
+
+public function getAllContent()
+{
+    $contents = [];
+    $collection = $this->firestore->collection('content');
+    $documents = $collection->documents();
+
+    foreach ($documents as $document) {
+        $contentData = $document->data();
+        $contentData['id'] = $document->id();
+        $contents[] = $contentData;
     }
 
-    public function updateContent($id, $data)
-    {
-        $this->firestore->collection('content')->document($id)->set($data);
-    }
+    return $contents;
+}
 
-    public function deleteContent($id)
-    {
-        $this->firestore->collection('content')->document($id)->delete();
-    }
-    public function getAllUser()
-    {
-        $users = [];
-        $collection = $this->firestore->collection('users');
-        $documents = $collection->documents();
-        
-        foreach ($documents as $document) {
-            $contentData = $document->data();
-            $contentData['id'] = $document->id();
-            $users[] = $contentData;
-        }
-        
-        return $users;
-    }
+public function getContent($id)
+{
+    $document = $this->firestore->collection('content')->document($id)->snapshot();
+    $contentData = $document->data();
 
-    public function getUser($email)
-    {
-        $userRef = $this->firestore->collection('users')->where('email', '=', $email)->limit(1);
-        $snapshot = $userRef->documents();
-    
-        if (!$snapshot->isEmpty()) {
-            foreach ($snapshot as $document) {
-                $userData = $document->data();
-                $userData['id'] = $document->id();
-    
-                return $userData;
-            }
-        }
-    
+    if ($contentData) {
+        $contentData['id'] = $id;
+        return $contentData;
+    } else {
         return null;
     }
+}
 
-    public function createUser($data)
-    {
-        $newUserRef = $this->firestore->collection('users')->newDocument();
-        $newUserRef->set($data);
+public function createContent($data)
+{
+    $newContentRef = $this->firestore->collection('content')->newDocument();
+    $newContentRef->set($data);
 
-        return $newUserRef->id();
+    return $newContentRef->id();
+}
+
+public function updateContent($id, $data)
+{
+    $this->firestore->collection('content')->document($id)->set($data);
+}
+
+public function deleteContent($id)
+{
+    $this->firestore->collection('content')->document($id)->delete();
+}
+public function getAllUser()
+{
+    $users = [];
+    $collection = $this->firestore->collection('users');
+    $documents = $collection->documents();
+
+    foreach ($documents as $document) {
+        $contentData = $document->data();
+        $contentData['id'] = $document->id();
+        $users[] = $contentData;
     }
 
-    public function updateUser($id, $data)
+    return $users;
+}
+
+public function getUser($email)
+{
+    $userRef = $this->firestore->collection('users')->where('email', '=', $email)->limit(1);
+    $snapshot = $userRef->documents();
+    
+    if (!$snapshot->isEmpty()) {
+        foreach ($snapshot as $document) {
+            $userData = $document->data();
+            $userData['id'] = $document->id();
+
+            return $userData;
+        }
+    }
+    
+    return null;
+}
+ public function getUserDatatables($draw=null,$start=null,$length=null,$searchValue=null)
     {
-        $this->firestore->collection('users')->document($id)->set($data);
+
+
+        $collection = $this->firestore->collection('users');
+    // $query = $collection->where('status', '=', 1);
+        $documents = $collection->documents();
+
+        $dataUser = [];
+
+        foreach ($documents as $document) {
+            $data = $document->data();
+        $data['uid'] = $document->id(); // Menambahkan UID ke data Laporan
+        $dataUser[] = $data;
     }
 
-    public function deleteUser($id)
-    {
-        $this->firestore->collection('users')->document($id)->delete();
+    // Filtering data berdasarkan search value
+    $filteredData = [];
+    if (!empty($searchValue)) {
+        foreach ($dataUser as $data) {
+            if (stripos($data['email'], $searchValue) !== false ||
+                stripos($data['firstName'], $searchValue) !== false ||
+                stripos($data['lastName'], $searchValue) !== false) {
+                $filteredData[] = $data;
+        }
     }
+} else {
+    $filteredData = $dataUser;
+}
+
+$totalRecords = count($filteredData);
+
+    // Mengurutkan data berdasarkan UID secara ascending
+usort($filteredData, function ($a, $b) {
+    return $a['uid'] <=> $b['uid'];
+});
+
+    // Membatasi jumlah data yang ditampilkan sesuai dengan start dan length
+$pagedData = array_slice($filteredData, $start, $length);
+
+$response = [
+    'draw' => intval($draw),
+    'recordsTotal' => count($dataUser),
+    'recordsFiltered' => $totalRecords,
+    'data' => $pagedData,
+];
+
+header('Content-Type: application/json');
+echo json_encode($response);
+}
+public function createUser($data)
+{
+    $newUserRef = $this->firestore->collection('users')->newDocument();
+    $newUserRef->set($data);
+
+    return $newUserRef->id();
+}
+
+public function updateUser($id, $data)
+{
+    $this->firestore->collection('users')->document($id)->set($data);
+}
+
+public function deleteUser($id)
+{
+    return $this->firestore->collection('users')->document($id)->delete();
+}
 }
