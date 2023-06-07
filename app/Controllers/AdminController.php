@@ -83,7 +83,7 @@ class AdminController extends BaseController
             $response->setStatusCode(ResponseInterface::HTTP_INTERNAL_SERVER_ERROR);
             $response->setJSON([
                 'status' => 'error',
-                'message' => 'Failed to create admin',
+                'message' => 'Gagal create admin, email sudah dipakai',
             ]);
         }
 
@@ -155,5 +155,90 @@ class AdminController extends BaseController
 
         return $response;
     }
+public function getAdminDatatables()
+{
+    $firebase = new FirebaseClient();
+    $draw = $_POST['draw'];
+    $start = $_POST['start'];
+    $length = $_POST['length'];
+    $searchValue = $_POST['search']['value'];
+    return $firebase->getAdminDatatables($draw,$start,$length,$searchValue);
+}
+public function deleteAdmin(){
+    $firebase = new FirebaseClient();
+    $uid = $_POST['uid'];
 
+    $deleted = $firebase->deleteAdmin($uid);
+
+
+ if ($deleted) {
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NO_CONTENT);
+        } else {
+            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika admin tidak ditemukan
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
+            $response->setJSON([
+                'status' => 'error',
+                'message' => 'Gagal dihapus',
+            ]);
+        }
+
+        return $response;
+
+
+}
+
+public function nonaktifkanAdmin(){
+    $firebase = new FirebaseClient();
+    $uid = $_POST['uid'];
+
+    $dataAdmin = $firebase->getAdminById($uid);
+
+    // $KirimBalasan = $firebase->kirimBalasan($dataLaporan);
+ if ($dataAdmin) {
+            $data = $dataAdmin;
+            $data['status'] = 0;
+            $firebase->updateAdmin($uid, $data);
+            // $firebase->deleteBalasan($uid);
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NO_CONTENT);
+        } else {
+            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika admin tidak ditemukan
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
+            $response->setJSON([
+                'status' => 'error',
+                'message' => 'Gagal dinonaktifkan',
+            ]);
+        }
+
+        return $response;
+}
+public function aktifkanAdmin(){
+    $firebase = new FirebaseClient();
+    $uid = $_POST['uid'];
+
+    $dataAdmin = $firebase->getAdminById($uid);
+
+    // $KirimBalasan = $firebase->kirimBalasan($dataLaporan);
+ if ($dataAdmin) {
+            $data = $dataAdmin;
+            $data['status'] = 1;
+            $firebase->updateAdmin($uid, $data);
+            // $firebase->deleteBalasan($uid);
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NO_CONTENT);
+        } else {
+            // Mengembalikan respons dengan kode HTTP 404 (Not Found) jika admin tidak ditemukan
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_NOT_FOUND);
+            $response->setJSON([
+                'status' => 'error',
+                'message' => 'Gagal diaktifkan',
+            ]);
+        }
+
+        return $response;
+}
 }

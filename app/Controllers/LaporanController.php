@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Libraries\FirebaseClient;
 use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 class LaporanController extends BaseController
 {
     public function index()
@@ -335,5 +337,54 @@ public function HapusBalasLaporan(){
         return $response;
 
 
+}
+public function downloadLaporan()
+{   
+
+    $startTimestamp = strtotime($_POST['startTimestamp'])*1000;
+    $endTimestamp = strtotime($_POST['endTimestamp'])*1000;
+    $firebase = new FirebaseClient();
+
+    $laporanData = $firebase->downloadLaporan($startTimestamp,$endTimestamp);
+    // var_dump($query);
+    // die();
+    // $laporanData = [];
+    // foreach ($query as $document) {
+    //     $laporanData[] = $document->data();
+    // }
+
+    // Membuat HTML laporan
+    $html = '<h1>Laporan</h1>';
+    $html .= '<table>';
+    $html .= '<tr><th>Tanggal</th><th>Judul</th><th>Keterangan</th></tr>';
+    foreach ($laporanData as $laporan) {
+        $tanggal = date('d-m-Y', $laporan['tanggal']);
+        $nama = $laporan['nama'];
+        $pengaduan = $laporan['pengaduan'];
+        $html .= "<tr><td>$tanggal</td><td>$nama</td><td>$pengaduan</td></tr>";
+    }
+    $html .= '</table>';
+
+    // Menginisialisasi objek Dompdf
+    $dompdfOptions = new Options();
+    $dompdfOptions->set('defaultFont', 'Arial');
+    $dompdf = new Dompdf($dompdfOptions);
+
+    // Memuat HTML ke Dompdf
+    $dompdf->loadHtml($html);
+
+    // Merender HTML menjadi PDF
+    $dompdf->render();
+
+    // Menghasilkan nama file unik untuk laporan PDF
+    $fileName = 'laporan_' . date('YmdHis') . '.pdf';
+
+    // Mengunduh laporan PDF
+    $dompdf->stream($fileName, ['Attachment' => true]);
+    // Mengirim laporan PDF sebagai respons
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: attachment; filename="laporan.pdf"');
+    // echo $pdf->Output('S'); // Mengembalikan laporan PDF sebagai string
+    exit();
 }
 }

@@ -73,7 +73,71 @@ class FirebaseClient
     
         return null;
     }
+     public function getAdminById($id)
+    {
+      // $adminRef = $this->firestore->collection('admin');
+      //   $snapshot = $adminRef->documents($id);
+        $document = $this->firestore->collection('admin')->document($id)->snapshot();
+        $snapshot = $document->data();
+        
+        if ($snapshot) {
+            return $snapshot;
+        } else {
+            return null;
+        }
     
+        return null;
+    }
+    public function getAdminDatatables($draw=null,$start=null,$length=null,$searchValue=null)
+{
+    
+
+    $collection = $this->firestore->collection('admin');
+    // $query = $collection->where('status', '=', 1);
+    $documents = $collection->documents();
+
+    $dataAdmin = [];
+
+    foreach ($documents as $document) {
+        $data = $document->data();
+        $data['uid'] = $document->id(); // Menambahkan UID ke data Laporan
+        $dataAdmin[] = $data;
+    }
+
+    // Filtering data berdasarkan search value
+    $filteredData = [];
+    if (!empty($searchValue)) {
+        foreach ($dataAdmin as $data) {
+            if (stripos($data['email'], $searchValue) !== false ||
+                stripos($data['nama_depan'], $searchValue) !== false ||
+                stripos($data['nama_belakang'], $searchValue) !== false) {
+                $filteredData[] = $data;
+            }
+        }
+    } else {
+        $filteredData = $dataAdmin;
+    }
+
+    $totalRecords = count($filteredData);
+
+    // Mengurutkan data berdasarkan UID secara ascending
+    usort($filteredData, function ($a, $b) {
+        return $a['uid'] <=> $b['uid'];
+    });
+
+    // Membatasi jumlah data yang ditampilkan sesuai dengan start dan length
+    $pagedData = array_slice($filteredData, $start, $length);
+
+    $response = [
+        'draw' => intval($draw),
+        'recordsTotal' => count($dataAdmin),
+        'recordsFiltered' => $totalRecords,
+        'data' => $pagedData,
+    ];
+
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}
     public function createAdmin($data)
     {
         if ($this->getAdmin($data['email']) == null) {
@@ -82,20 +146,27 @@ class FirebaseClient
         
         return $newAdminRef->id();
         }else{
-            return "user exist";
+            $response = service('response');
+            $response->setStatusCode(ResponseInterface::HTTP_INTERNAL_SERVER_ERROR);
+            $response->setJSON([
+                'status' => 'error',
+                'message' => 'Gagal create admin, email sudah dipakai',
+            ]);
         }
         
     }
-
+    public function deleteAdmin($id)
+    {
+        return $this->firestore->collection('admin')->document($id)->delete();
+    }
     public function updateAdmin($id, $data)
     {
         $this->firestore->collection('admin')->document($id)->set($data);
     }
+    public function aktifkanAdmin($id){
 
-    public function deleteAdmin($id)
-    {
-        $this->firestore->collection('admin')->document($id)->delete();
     }
+
 
     // Laporan
     public function getAllLaporanOnly()
@@ -385,6 +456,21 @@ public function countLaporanByRating($tahun)
     }
 
     return $resultRating;
+}
+public function downloadLaporan($startTimestamp,$endTimestamp){
+    $laporan = [];
+
+    $collection = $this->firestore->collection('Laporan');
+    $documents = $collection->where('tanggal', '>=', $startTimestamp)
+                        ->where('tanggal', '<=', $endTimestamp)
+                        ->documents();
+    foreach ($documents as $document) {
+            $contentData = $document->data();
+            $contentData['id'] = $document->id();
+            $laporan[] = $contentData;
+        }
+
+        return $laporan;
 }
     public function createLaporan($data)
     {

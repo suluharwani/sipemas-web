@@ -12,9 +12,8 @@
                         <div class="card-body px-4 py-4-5">
                             <div class="row">
                                 <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                    <div class="stats-icon purple mb-2">
-                                        <i class="iconly-boldShow"></i>
-                                    </div>
+                              
+                                    <button class="btn btn-primary iconly-boldShow stats-icon purple mb-2 downloadLaporan"></button>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">Laporan</h6>
@@ -26,13 +25,13 @@
                 </div>
                 <div class="col-6 col-lg-3 col-md-6">
                     <div class="card">
-                        <div class="card-body px-4 py-4-5">
+                        <div class="card-body px-4 py-4-5" >
                             <div class="row">
                                 <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                    <div class="stats-icon blue mb-2">
-                                        <i class="iconly-boldProfile"></i>
-                                    </div>
+                                        <button class="btn btn-primary iconly-boldProfile stats-icon blue mb-2 buttonAdmin" ></button>
+                                        
                                 </div>
+
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">Admin</h6>
                                     <h6 class="font-extrabold mb-0"><span id="adminCount"></h6>
@@ -46,9 +45,9 @@
                             <div class="card-body px-4 py-4-5">
                                 <div class="row">
                                     <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                        <div class="stats-icon green mb-2">
-                                            <i class="iconly-boldAdd-User"></i>
-                                        </div>
+                                        
+                                            <button class="btn btn-primary iconly-boldAdd-User stats-icon green mb-2"></button>
+
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">User</h6>
@@ -63,9 +62,8 @@
                                 <div class="card-body px-4 py-4-5">
                                     <div class="row">
                                         <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                            <div class="stats-icon red mb-2">
-                                                <i class="iconly-boldBookmark"></i>
-                                            </div>
+                                          
+                                            <button class="btn btn-primary iconly-boldBookmark stats-icon red mb-2"></button>
                                         </div>
                                         <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                             <h6 class="text-muted font-semibold">Content</h6>
@@ -206,6 +204,43 @@
                         <th>Nama</th>
                         <th>Jenis Layanan</th>
                         <th>Sub Layanan</th>
+                        <th>Action</th>
+                        <!-- tambahkan kolom lain sesuai kebutuhan -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- data Laporan akan ditampilkan di sini -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        Catatan:
+    </div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalAdmin" data-bs-focus="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tabel Administrator</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div>
+        <button class="btn btn-success tambahAdmin">Tambah</button>
+        </div>
+
+        <div class="table-responsive">
+            <table id="tableAdmin" class="table table-hover table-lg">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Level</th>
+                        <th>Status</th>
                         <th>Action</th>
                         <!-- tambahkan kolom lain sesuai kebutuhan -->
                     </tr>
